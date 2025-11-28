@@ -82,12 +82,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+          rel="stylesheet"
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
         {children}
         <WhatsAppButton />
         <NewsletterSection />
-          <TopBar />
+        <TopBar />
         <Footer />
       </body>
     </html>
