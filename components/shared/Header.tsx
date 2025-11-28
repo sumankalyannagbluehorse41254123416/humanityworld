@@ -1,3 +1,97 @@
+// "use client";
+
+// import { useEffect } from "react";
+// import Link from "next/link";
+// import Image from "next/image";
+// import $ from "jquery";
+
+// export default function Header() {
+//   useEffect(() => {
+//     // We load jQuery only in browser mode
+//     if (typeof window !== "undefined") {
+//       import("jquery").then(() => {
+//         // Load Navigation script
+//         (function ($: any) {
+//           if ($.fn.navigation) {
+//             $("#navigation1").navigation();
+//             $("#always-hidden-nav").navigation({ hidden: true });
+//           }
+//         })($);
+//       });
+//     }
+//   }, []);
+
+//   return (
+//     <header className="header_area" id="mynav">
+//       <div className="main_header_area animated">
+//         <div className="container">
+//           <nav id="navigation1" className="navigation">
+//             <div className="nav-header">
+//               <Link className="nav-brand" href="/">
+//                 <Image
+//                   width={210}
+//                   height={47.21}
+//                   src="/images/HWF_logo2.png"
+//                   alt="Logo"
+//                 />
+//               </Link>
+
+//               <div>
+//                 <Link href="/donate" className="donet_now_top">
+//                   Donate Now
+//                 </Link>
+//               </div>
+
+//               <div className="nav-toggle"></div>
+//             </div>
+
+//             {/* Menu */}
+//             <div className="nav-menus-wrapper">
+//               <ul className="nav-menu align-to-right">
+
+//                 <li><Link href="/">Home</Link></li>
+
+//                 <li>
+//                   <a href="#">About Us</a>
+//                   <ul className="nav-dropdown">
+//                     <li><Link href="/who-we-are">Who We Are</Link></li>
+//                     <li><Link href="/our-approach">Our Approach</Link></li>
+//                     <li><Link href="/vision-and-mission">Vision & Mission</Link></li>
+//                     <li><Link href="/our-team">Our Team</Link></li>
+//                     <li><Link href="/our-volunteers">Our Volunteers</Link></li>
+//                     <li><Link href="/our-mentors">Our Mentors</Link></li>
+//                     <li><Link href="/careers">Careers</Link></li>
+//                   </ul>
+//                 </li>
+
+//                 <li>
+//                   <a href="#">Work</a>
+//                   <ul className="nav-dropdown">
+//                     <li><Link href="/education">Education</Link></li>
+//                     <li><Link href="/health-care">Health Care</Link></li>
+//                     <li><Link href="/women-hygiene">Women Hygiene</Link></li>
+//                     <li><Link href="/homeless-support">Homeless Support</Link></li>
+//                   </ul>
+//                 </li>
+
+//                 <li><Link href="/gallery">Gallery</Link></li>
+//                 <li><Link href="/contact">Contact Us</Link></li>
+
+//                 <li>
+//                   <Link href="/donate" className="donet_button">
+//                     Donate Now
+//                   </Link>
+//                 </li>
+
+//               </ul>
+//             </div>
+//           </nav>
+//         </div>
+//       </div>
+//     </header>
+//   );
+// }
+
 "use client";
 
 import { useEffect } from "react";
@@ -7,15 +101,81 @@ import $ from "jquery";
 
 export default function Header() {
   useEffect(() => {
-    // We load jQuery only in browser mode
     if (typeof window !== "undefined") {
       import("jquery").then(() => {
-        // Load Navigation script
         (function ($: any) {
           if ($.fn.navigation) {
             $("#navigation1").navigation();
             $("#always-hidden-nav").navigation({ hidden: true });
           }
+
+          // >>> Hover show/hide with smooth animation <
+          $(".nav-menu > li").each(function (this: HTMLElement) {
+            const li = $(this);
+            const drop = li.children(".nav-dropdown");
+
+            if (drop.length === 0) return;
+
+            // Initially hide the dropdown
+            drop.css({
+              overflow: "hidden",
+              height: "0px",
+              display: "none",
+            });
+
+            let animating = false;
+            let isHovering = false;
+
+            function animateHeight(
+              element: JQuery,
+              to: number,
+              duration = 250,
+              onComplete?: () => void
+            ) {
+              if (animating) return;
+              animating = true;
+
+              const start = element.height() || 0;
+              const startTime = performance.now();
+
+              function step(time: number) {
+                const progress = Math.min((time - startTime) / duration, 1);
+                const current = start + (to - start) * progress;
+                element.height(current);
+
+                if (progress < 1) {
+                  requestAnimationFrame(step);
+                } else {
+                  animating = false;
+                  if (onComplete) onComplete();
+                }
+              }
+
+              requestAnimationFrame(step);
+            }
+
+            li.hover(
+              function (this: HTMLElement) {
+                // Mouse enters
+                isHovering = true;
+                drop.css({ display: "block" });
+                const fullHeight = drop[0].scrollHeight;
+                animateHeight(drop, fullHeight);
+              },
+              function (this: HTMLElement) {
+                // Mouse leaves
+                isHovering = false;
+                animateHeight(drop, 0, 250, () => {
+                  // Only hide if still not hovering after animation completes
+                  if (!isHovering && drop.height() === 0) {
+                    drop.css({ display: "none" });
+                  }
+                });
+              }
+            );
+          });
+          // <<< End smooth animation >>>
+
         })($);
       });
     }
@@ -45,7 +205,6 @@ export default function Header() {
               <div className="nav-toggle"></div>
             </div>
 
-            {/* Menu */}
             <div className="nav-menus-wrapper">
               <ul className="nav-menu align-to-right">
 

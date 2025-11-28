@@ -1893,6 +1893,9 @@ footer .bottom-links li:not(:first-child) {
   padding: 12px 0;
   background: #6b195a;
 }
+.header2-topbar .top-bar .same_1 i{
+  font-size: inherit;
+}
 .header-1.header-2 nav > ul > li > a {
   color: #fff;
   font-weight: 400;
