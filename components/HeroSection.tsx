@@ -35,7 +35,6 @@ const HeroSection = () => {
                     data-element_type="column"
                   >
                     <div className="elementor-widget-wrap elementor-element-populated hwf_pp_img">
-                      
                       {/* Heading 1 */}
                       <div
                         className="elementor-element elementor-element-f3298b2 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading"
