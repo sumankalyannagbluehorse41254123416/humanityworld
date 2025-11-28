@@ -12,7 +12,8 @@
     "jquery": "^3.7.1",
     "next": "16.0.4",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "remixicon": "^4.7.0"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.33",
