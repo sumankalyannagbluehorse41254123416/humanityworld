@@ -1,0 +1,55 @@
+/*==========Background Color===========*/
+.bg-theme-dark,
+.header-1,
+.bg-theme-light:hover,
+.theme-btn a:hover,
+.header-1.header5 nav > ul > li ul,
+.reviews-slider.sponsors-style::before,
+.donation-box-wraper-inner > a.donation-done:hover, 
+.donation-proces-btn > button:hover,
+.header2-topbar,
+.blog-style1 .social-share > a,
+.header-1 .urgent-popup-list a:hover,
+.view-all-btn > a:hover,
+.news-tab-content p + a:hover,
+.featured-story-txt .theme-btn:hover,
+.theme-btn:hover,
+.grid-2 .gallery-box:before,
+.loadmore-wrap a:hover,
+.grid-1 .gallery-box .gallery-info,
+.woocommerce div.product .woocommerce-tabs ul.nav-tabs li.active a.nav-link,
+.woocommerce div.product .woocommerce-tabs ul.nav-tabs li a.nav-link:hover
+{
+	background-color: var(--theme-primary-color2);
+}
+
+/*.header-1.header3{
+	background-color: rgba(0, 77, 74, 0.9);
+}*/
+/*============Color===========*/
+.theme-text-dark,
+.cause-item-style2 > h3:hover a,
+.event-style1 .event-media-body h3:hover a,
+.blog-style1 .blog-txt h3:hover a,
+.event-style2 .event-title h3:hover a,
+.cause-single-style1 h2:hover a,
+.cause-style6 h4:hover a,
+.header1-topbar .social-medias>a,
+.event-style4 .event-txt h3:hover a,
+.blog-style4 .blog-content h3:hover a,
+.blog-style8 h3:hover a,
+.blog-style7 .blog-content h3:hover a,
+.blog-style7 .blog-meta .blog-cat a:hover,
+.blog-style6 h3:hover a,
+.lif-team.style2 .team-social a:hover i,
+.lif-cause-post.lif-cause-style1 .lif-cause-content .cause-amount span i,
+.life-cause-content.cause-content-style2 .cause-target .cause-amount span i,
+.single-product .price ins bdi span.woocommerce-Price-currencySymbol,
+.lif-team.style1 .team-meat-item i {
+	color: var(--theme-primary-color2);
+}
+
+/*============Border Color===========*/
+.lif-team.style2 .team-social a:hover{
+	border-color: var(--theme-primary-color2);
+}

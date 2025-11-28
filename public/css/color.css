@@ -1,0 +1,157 @@
+/*==============Color==============*/
+
+.text-theme, .breadcrumb li.breadcrumb-item a:hover, .breadcrumb li.breadcrumb-item a:focus, .widget-box ul li:hover>a, .widget-box ul li>a:focus, .mini-post-info>h4 a:hover, .mini-post-info>h4 a:focus, .mini-post-info>span a:hover, .mini-post-info>span a:focus, .bottom-links>li a:hover, .bottom-links>li a:focus, nav ul li:hover>a, nav ul li>a:focus, .project-box>a:hover, .project-box>a:focus, .project-info>h3 a:hover, .project-info>h3 a:focus, .cause-thumb>a:hover, .cause-thumb>a:focus, .cause-info>h3 a:hover, .cause-info>h3 a:focus, .upcoming-event-info>h3 a:hover, .upcoming-event-info>h3 a:focus, .event-info-bar>h3 a:hover, .event-info-bar>h3 a:focus, .box-img>a:focus, .blog-info>h3 a:hover, .blog-info>h3 a:focus, ul.blog-meta>li a:hover, ul.blog-meta>li a:focus, .help-need-info>h3 a:hover, .help-need-info>h3 a:focus, .cats>a:hover, .cats>a:focus, .product-box>h3 a:hover, .product-box>h3 a:focus, .fancy-info>h3 a:hover, .fancy-info>h3 a:focus, .fancycause-info>h3 a:hover, .fancycause-info>h3 a:focus, .deal-desc>h3 a:hover, .deal-desc>h3 a:focus, .deal-nav-item.slick-current>h5, .toggle-item.activate>h4, .upcoming-info>h3 a:hover, .upcoming-info>h3 a:focus, .cause-info3>h3 a:hover, .cause-info3>h3 a:focus, .cats>a:hover, .cats>a:focus, .urgentcause-progress-wrapper.style2 .goal span i, .blog-list-info>h3 a:hover, .blog-list-info>h3 a:focus, .load-more:hover, .load-more:focus, .widget-box2 ul li:hover>a, .widget-box2 ul li a:focus, .mini-event-info>h4 a:hover, .mini-event-info>h4 a:focus, .mini-event-info>span a:hover, .mini-event-info>span a:focus, .tweet-info>a, .service-info>h3 a:hover, .service-info>h3 a:focus, .team-info>h3 a:hover, .team-info>h3 a:focus, .img-share-links>a:hover, .img-share-links>a:focus, .pst-mta>li a:hover, .pst-mta>li a:focus, .share-this-innr>a:hover, .share-this-innr>a:focus, .service-info3>h3 a:hover, .service-info3>h3 a:focus, .service-info4>h3 a:hover, .service-info4>h3 a:focus, .toggle.style3 .toggle-item2.activate>h4, .toggle.style6 .toggle-item2.activate>h4, .toggle.style7 .toggle-item2.activate>h4, .toggle.style9 .toggle-item2.activate>h4, .service-info3>i svg, .service-box:hover>i, a.woocommerce-review-link, .woocommerce-review__published-date, .product-detail-desc .product_meta>span a:hover, .showcoupon:hover, .woocommerce-info::before, .wp-calendar-nav a:hover, .widget_rss cite, .tagcloud a:hover, .shipping-calculator-button:hover, .woocommerce-account .addresses .title .edit:hover, .woocommerce-message::before, .widget_recent_comments.widget-box2 ul li a:hover, .gallery-info>h3:hover a, #bbpress-forums a:hover, .search-title span, header.style1 nav ul li.menu-item-has-children:hover>a::before, header.style4 nav ul li.menu-item-has-children:hover>a::before, header.style2 nav ul li.menu-item-has-children.active>a::before, header.style2 nav ul li.menu-item-has-children:hover>a::before, .urgentcause-info>h3:hover a, .page-banner-style4 .breadcrumb-item.active span, .about-footer-new>div p a:hover, .page-banner-style1 .breadcrumb-item.active, .search-overlay__btn, .res-menu-wrapper ul.menu>li:hover>a, .res-menu-wrapper ul.menu>li:hover>a:before, .res-menu-wrapper ul.menu>li ul li:hover>a, .res-menu-wrapper2 ul.menu>li:hover>a, .res-menu-wrapper2 ul.menu>li:hover>a::before, .res-menu-wrapper2 ul.menu>li ul li:hover>a, header.style5 nav>ul>li:hover>a::after, .btn-link:hover, .popup-style3 .amount-info-box h2 span, .popup-style3 .donation-amount-box ul li a.active, .popup-style3 .donation-amount-box ul li a:hover, .donation-modal2 .custom-donation-amount>span, .el-select-dropdown__item.selected, .el-date-table td.today span, .el-date-picker__header-label.active, .el-date-picker__header-label:hover, .el-date-table td.available:hover, .amount>span i, .amount>span:not(.amount-return), .cause-detail>span, .circular span, .circular>div::before, .paragraph_default>p, .post-detail>h3 a:focus, .post-detail>h3 a:hover, ul.meta li a:focus, ul.meta li a:hover, ul.meta li i, .logged-in-as a:hover, ul.top-list>li>a:hover,
+.event-style3 .event-txt span > i,
+.theme-text-light,
+.lif-team.style1 .team-content h3 a:hover,
+.blog-content h3 a:hover,
+.event-style3 .event-txt h3 a:hover,
+.blog-post.list-style2 .blog-content > a,
+.blog-post.grid_style1 .blog-meta .bg-theme-color,
+.lif-blog-featured-post.list-style2 h3 a:hover,
+.lif-team.style1 .team-content span > a:hover,
+.event-txt h3 a:hover,
+.lif-cause-post.lif-cause-style1 .lif-cause-content h3 a:hover,
+.blog-post.list-style3 .blog-content ul li a:hover,
+.event-style1 .event-meta i,
+.product-style-1 .product-img > a i,
+.featured-story-txt span,
+.project-style3 .project-txt h4:hover,
+.blog-style3 .view-all,
+.custom-tabs-style .nav-pills h4,
+.project-style1 .project-box span > span,
+.top-bar ul li i,
+.project-style3 .project-txt h4 a:hover,
+.header-1.header3 nav > ul > li ul li.menu-item-has-children:hover > a::after,
+.lif-team.style2 .lif-team-content h3 a:hover,
+.blog-style3 .blog-content h4:hover a,
+.life-cause-content.cause-content-style2 h3 a:hover
+ {
+	color: var(--theme-primary-color);
+}
+
+.deal-nav-item.slick-current>h5, .style2 .donation-info-box>h6, header.style5 .theme-btn.bg-theme.rounded, header.style5 nav>ul>li:hover>a, .cause-style2-iner .dontn-amnt-info span strong, .mnth-donor-content>span, .wpcm-cause-lsting-contnt span, .wpcm-cause-style3-contnt span strong, .wpcm-donr-donation span, .wpcm-heading-style3 i, .wpcm-mnth-donor-widget .donation-det span, .wpcm-rcnt-donation-info h5:hover, .wpcm-recnt-donation-widget ul li i, .wpcm-urgnt-causes-widget .wpcm-cause-nam h3:hover, .wpcm-urgnt-causes-widget .wpcm-dontn-info strong, .wpcm-urgnt-causes2-widget .dontn-amnt-info span strong, .wpcm-wrapper .wpcm-btn.wpcm-btn-border, .wpcm-wrapper .wpcm-btn2.wpcm-btn-border, .wpcm-wrapper .wpcm-rcnt-donation-info>a {
+	color: #d8281b !important
+}
+
+/*==============Background Color==============*/
+
+.bg-gray .slick-dots>li.slick-active button, .bg-gray .slick-dots>li button:hover, .bg-gray .slick-dots>li button:focus, .slick-dots>li.slick-active button, .slick-dots>li button:hover, .slick-dots>li button:focus, .bg-theme, a.comment-reply-link:hover, a.comment-reply-link:focus, .pagination li.page-item a.page-link:hover, .pagination li.page-item a.page-link:focus, .pagination li.page-item span, .pagination li.page-item.prev a.page-link:hover, .pagination li.page-item.next a.page-link:hover, .pagination li.page-item.prev a.page-link:focus, .pagination li.page-item.next a.page-link:focus, .bg-gray .slick-dots>li.slick-active button, .bg-gray .slick-dots>li button:hover, .bg-gray .slick-dots>li button:focus, .slick-dots>li.slick-active button, .slick-dots>li button:hover, .slick-dots>li button:focus, .flickr_gallery>li a:before, .social-bar>a:hover, .social-bar>a:focus, .upcoming-event-thumb:before, .video-box:before, .help-need-thumb>figure.help-color2:after, .product-box .product-img>a:hover, .product-box .product-img>a:focus, button.responsive-menu-btn:hover, button.responsive-menu-btn:focus, .toggle-item.activate>h4:before, .theme-btn2:before, ul.fltr-btns>li.active>a, ul.fltr-btns>li a:hover, ul.fltr-btns>li a:focus, .blog-detail-gallery>button:hover, .blog-detail-gallery>button:focus, .tagclouds>a:hover span:before, .tagclouds>a:focus span:before, .team-detail-info>li:hover>p, .product-detail-tabs ul.nav-tabs li.nav-item a.nav-link.active, .toggle.style2 .toggle-item2.activate, .toggle.style4 .toggle-item2.activate>h4, .toggle.style5 .toggle-item2.activate>h4, .toggle.style4 .toggle-item2>h4>i, .toggle.style5 .toggle-item2>h4>i, .toggle.style6 .toggle-item2.activate>h4>i, .toggle.style7 .toggle-item2.activate>h4>i, .toggle.style8 .toggle-item2.activate, .tab-style ul.nav-tabs li.nav-item a.nav-link.active, .tab-style.style2 ul.nav-tabs li.nav-item a.nav-link:before, .tab-style.style3 ul.nav-tabs li.nav-item a.nav-link.active, .bg-gray ul.nav-tabs li.nav-item a.nav-link.active, .woocommerce-tabs ul.nav-tabs li.active a.nav-link, .dropcap-style.style15:before, .woocommerce .single_add_to_cart_button.button.alt, .woocommerce #respond input#submit, .product-detail-desc .single_add_to_cart_button.button.alt:hover, #place_order, .woocommerce ul.wc_payment_methods li input[type="radio"]:checked+label::after, .woocommerce ul#shipping_method li input[type="radio"]:checked+label::after, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover, .woocommerce button.button, .woocommerce button.button:hover, .woocommerce a.button, .woocommerce a.button:hover, .product-box .product-img>a.wc-forward, .calendar_wrap>table caption, .calendar_wrap>table tbody td#today, .post-nav-links>span, .post-nav-links>a:hover, form.post-password-form>p>input:hover, #bbpress-forums li.bbp-header, #bbp_search_submit, .sidemenu .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .event-meta li i, header.style1 nav ul li ul li>a::after, header.style4 nav ul li ul li>a::after, header.style2 nav ul li ul.sub-menu li:hover>a::before, .barfiller .fill, .video-box>figure::before, .page-banner-style5 nav, .theme-layer::before, .page-banner-style3 nav, .sec-title.style4 h2::before, header.dark-header nav ul li ul, header.dark-header nav ul li ul::before, .search-overlay__close:hover, a.theme-btn2:hover, .box-item .box-img:before, .res-donate-btn, .donation-btn-style2::before, body.menu-active .responsive-wrapper-style2 .res-btn, .res-menu-wrapper ul.menu>li:hover>a::after, header.style5 nav>ul>li>ul>li:hover, #cancel-comment-reply-link:hover, .popup-style3 .donation-payment-cycle>a.active, .popup-style3 .custom-donation-amount>span, .popup-style3 .bk-step, .popup-style3 .donation-done, .wpcm-wrapper.popup-style3 span.closep:hover, .donation-modal2 .donation-payment-cycle>a.active, .donation-modal2 .donation-payment-method a.wpdonation-button.active, .donation-modal2 .donation-payment-method a.wpdonation-button:focus, .donation-modal2 .donation-payment-method a.wpdonation-button:hover, .donation-modal2 .wpcm-wrapper .donation-done, .wpcm-wrapper span.closep:hover, .single-proced-btn>a.proceed, .single-proced-btn>a.proceed:hover, .single-proced-btn>a.proceed:focus, .el-date-table td.current:not(.disabled) span, .popup-style3 .donation-done:hover, .popup-style3 .donation-done:hover, .popup-style3 .bk-step:hover, .btn-back, .btn-donate>a:focus, .btn-donate>a:hover, .cause-detail>strong a, .donation-figures li a:focus, .donation-figures li a:hover, .frequency li a.active::before, .frequency li a:focus::before, .frequency li a:hover::before, .post-img>span, .single-proced-btn>a.proceed:focus, .single-proced-btn>a.proceed:hover, .wpdonation-box>button, .donation-model-1 .btn-back:focus, .donation-model-1 .btn-back:hover, .donation-modal-preloader .my_loader, .woocommerce #respond input#submit:hover, .donation-figures li a.active.wpdonation-button, .wpcm-wrapper .wpcm-btn-green, .wpcm-widget-title::before, .cause-style2-iner figure a, .donation-proces-btn button.donation-done, .loader,
+.header-1 .urgent-popup-list a, .header-2 .urgent-popup-list a,
+.news-tab-content a,
+#newsTab .tab-nav-item figure::before,
+.event-style3 .event-img span,
+.loadmore-wrap a,
+.pagination-wrap .prev,
+.pagination-wrap .next,
+.pagenation li a:hover,
+.pagenation li span:hover,
+.blog-post.grid_style1 .blog-meta .bg-theme-color,
+.lif-blog-featured-post.list-style2 a.lif_donate,
+.lif-team.style2 + .pagination-wrap .page-numbers.next,
+.lif-team.style2 + .pagination-wrap .page-numbers.prev,
+.lif-team.style2 + .pagination-wrap .page-numbers:hover,
+.cause-donation-meta::before,
+.pagenation li span.current,
+.custom-tabs-style .nav-pills li .active::before,
+.cause-style5 .cause-hover,
+.event-style2 .event-countdown li,
+.featured-story-txt .theme-btn,
+.theme-btn,
+.reviews-slider .theme-btn,
+.blog-style3 .blog-content .blog-date,
+.custom-tabs-style .nav-pills h4::before,
+.photo-item figure::before,
+.update-custom-mini-cart-count span,
+.topbar-header5 .top-bar,
+.grid-1 .gallery-box:hover .gallery-info,
+.woocommerce div.product .woocommerce-tabs ul.nav-tabs,
+.single-product form.cart .button,
+.single-product form.cart .button.alt.disabled,
+.single-product .btn-primary:not(:disabled):not(.disabled):active
+{
+	background-color: var(--theme-primary-color);
+}
+
+header.style5 .theme-btn.bg-theme.rounded:hover, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current,  .wpcm-wrapper .campaign-para-content .wpcm-btn-yellow, wpcm-cause-lsting-contnt .progress-bar, .wpcm-donation-style1, .wpcm-heading-style1 h4::before, .wpcm-heading-style2::after, .wpcm-heading-style4 h2::before, .wpcm-heading-style5::before, .wpcm-urgnt-causes-widget .wpcm-dontn-info a, .wpcm-urgnt-causes2-widget figure a, .wpcm-widget-title::before, .wpcm-wrapper .cause-style2-iner .progress-bar, .wpcm-wrapper .progress-bar, .wpcm-wrapper .wpcm-btn-border:hover, .wpcm-wrapper .wpcm-btn2.wpcm-btn-blk:hover, .wpcm-wrapper .wpcm-cause-lsting-contnt .progress-bar, .team-detail-img .team-social, aside .widget_product_search form button, .wpcm-wrapper .wpcm-btn-green {
+	background-color: #d8281b !important;
+}
+
+/*==============SVG==============*/
+
+.service-info3>i svg, .service-box4:hover>i svg {
+	fill: #d8281b;
+}
+
+/*==============Border Color==============*/
+
+.pagination li.page-item a.page-link:hover, 
+.pagination li.page-item a.page-link:focus, 
+.woocommerce nav.woocommerce-pagination ul li span, 
+.pagination li.page-item span, .pagination li.page-item.prev a.page-link:hover, 
+.pagination li.page-item.next a.page-link:hover, 
+.pagination li.page-item.prev a.page-link:focus, 
+.pagination li.page-item.next a.page-link:focus, 
+.toggle-item.activate>h4:before, .skills>i, 
+.toggle.style7 .toggle-item2.activate, 
+.tab-style.style2 .tab-content .tab-pane, 
+.dropcap-style.style2>p>span, 
+.event-meta li, 
+.banner-style-7 .page-title-wrap, header.style5 
+.theme-btn.bg-theme.rounded, .popup-style3 
+.donation-amount-box ul li a.active, 
+.popup-style3 .donation-amount-box ul li a:hover, 
+.popup-style3 .donation-payment-method>a.active, 
+.donation-modal2 .custom-donation-amount>span, 
+.donation-figures li a:focus, 
+.donation-figures li a:hover, 
+.el-select input[type="text"]:focus, 
+.el-select input[type="text"]:hover, 
+.textfield input[type="email"]:focus, 
+.textfield input[type="email"]:hover, 
+.textfield input[type="text"]:focus, 
+.textfield input[type="text"]:hover, 
+.textfield textarea:focus, 
+.textfield textarea:hover, 
+.wpcm-wrapper input[type="text"]:hover, 
+.wpcm-wrapper input[type="text"]:focus, 
+.el-custom-select .el-select .el-input.is-focus .el-input__inner, 
+.el-select .el-input.is-focus .el-input__inner, 
+.wpcm-custom-select2 .vs__dropdown-toggle:hover, 
+.wpcm-wrapper input[type="number"]:hover, 
+.wpcm-wrapper input[type="number"]:focus, 
+.wpcm-wrapper select:focus, 
+.wpcm-wrapper select:hover, 
+.wpcm-wrapper input[type="text"]:hover, 
+.wpcm-wrapper input[type="text"]:focus, 
+.donation-figures li a.active.wpdonation-button,
+.blog-style1 .blog-txt,
+.slick-slider .slick-dots li.slick-active button,
+.blog-style3 .view-all,
+.header-1 .urgent-popup-list a, 
+.header-2 .urgent-popup-list a,
+.view-all-btn > a,
+.news-tab-content p + a,
+.featured-story-txt .theme-btn,
+.theme-btn,
+.header-1.header3 nav > ul > li ul,
+.loadmore-wrap a,
+.single-product .btn-primary:not(:disabled):not(.disabled):active  {
+	border-color: #f56a01;
+}
+
+.tagclouds>a:hover span:after, .tagclouds>a:focus span:after, header.style1 nav ul li ul li ul {
+	border-left-color: #d8281b;
+}
+
+.woocommerce-info, .woocommerce-message, header.style1 nav>div>ul>li>ul, header.style4 nav>div>ul>li>ul, .popup-style3 .donation-payment-cycle>a.active::before, .donation-modal2 .donation-payment-cycle>a.active::before {
+	border-top-color: #d8281b;
+}
+
+.page-banner-style5 nav::before, .page-banner-style5 nav::after, header.style1.dark-header nav>div>ul>li>ul::after, header.style5 nav>ul>li>ul>li>ul li a {
+	border-bottom-color: #d8281b;
+}
+
+.wpcm-wrapper .wpcm-btn-border, .wpcm-wrapper .wpcm-btn2.wpcm-btn-blk:hover, .wpcm-wrapper .wpcm-btn2.wpcm-btn-green {
+	border-color: #d8281b !important;
+}
