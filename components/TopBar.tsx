@@ -12,7 +12,7 @@ export default function TopBar() {
                 
                 {/* Address */}
                 <li className="one same_1">
-                  {/* <i className="ri-map-pin-5-fill mr-2"></i> */}
+                  <i className="ri-map-pin-5-fill mr-2"></i>
                   <span>
                     Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra&nbsp;400051
                   </span>
@@ -20,13 +20,13 @@ export default function TopBar() {
 
                 {/* Phone */}
                 <li className="same_1">
-                  {/* <i className="ri-phone-fill mr-2"></i> */}
+                  <i className="ri-phone-fill mr-2"></i>
                   <span>+91 9967868731</span>
                 </li>
 
                 {/* Email */}
                 <li className="same_1">
-                  {/* <i className="ri-mail-fill mr-2"></i> */}
+                  <i className="ri-mail-fill mr-2"></i>
                   <span>shirazhwf@gmail.com</span>
                 </li>
               </ul>
