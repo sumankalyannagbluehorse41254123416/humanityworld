@@ -3826,6 +3826,9 @@ i {
     padding: 0 10px;
     color: #6b195a
 }
+.footer_icon i{
+    font-size: 30px;
+}
 
 .gallery_box {
     padding-bottom: 70px
