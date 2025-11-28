@@ -1,7 +1,63 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/shared/Header";
 
+
+
+import "../public/css/all.min.css";
+import "../public/css/animate.min.css";
+import "../public/css/animations.min.css";
+import "../public/css/bootstrap.min.css";
+import "../public/css/bootstrap.min(1).css";
+import "../public/css/bootstrap.min(2).css";
+import "../public/css/brands.min.css";
+import "../public/css/classic-themes.min.css";
+import "../public/css/cn.css";
+import "../public/css/color.css";
+import "../public/css/color2.css";
+import "../public/css/common.min.css";
+import "../public/css/compiler.css";
+import "../public/css/element-ui.css";
+import "../public/css/elementor-icons.min.css";
+import "../public/css/font-awesome.min.css";
+import "../public/css/fontawesome.min.css";
+import "../public/css/frontend-lite.min.css";
+import "../public/css/jquery.fancybox.min.css";
+import "../public/css/jquery.mCustomScrollbar.min.css";
+import "../public/css/loaders.min.css";
+import "../public/css/magnific-popup.css";
+import "../public/css/main.css";
+import "../public/css/nice-select.css";
+import "../public/css/owl.carousel.min.css";
+import "../public/css/post-7.css";
+import "../public/css/post-662.css";
+import "../public/css/post-2995.css";
+import "../public/css/post-3210.css";
+import "../public/css/post-st.css";
+import "../public/css/remixicon.css";
+import "../public/css/responsive.css";
+import "../public/css/responsive(1).css";
+import "../public/css/rs6.css";
+import "../public/css/sgr.css";
+import "../public/css/slick.min.css";
+import "../public/css/solid.min.css";
+import "../public/css/style.css";
+import "../public/css/style.min.css";
+import "../public/css/style.min(2).css";
+import "../public/css/style(1).css";
+import "../public/css/style(2).css";
+import "../public/css/styles.css";
+// import "../public/css/wc-blocks-style.css";
+import "../public/css/wc-blocks-vendors-style.css";
+import "../public/css/widget-icon-box.min.css";
+import "../public/css/woocommerce-layout.css";
+import "../public/css/woocommerce-smallscreen.css";
+import "../public/css/woocommerce.css";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import NewsletterSection from "@/components/NewsletterSection";
+import Footer from "@/components/shared/Footer";
+import TopBar from "@/components/TopBar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,7 +81,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Header />
         {children}
+        <WhatsAppButton />
+        <NewsletterSection />
+          <TopBar />
+        <Footer />
       </body>
     </html>
   );

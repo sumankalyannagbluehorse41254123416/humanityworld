@@ -1,0 +1,7 @@
+footer .fixed-bg {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-image: url("https://lifeline.webinane.com/population/wp-content/uploads/sites/9/2020/04/footer-bg.jpg");
+  background-size: cover;
+}
