@@ -73,7 +73,7 @@ const HeroSection = () => {
                         <div className="elementor-widget-container">
                           <div className="elementor-button-wrapper msin">
                             <Link
-                              href="https://humanityworldfoundation.com/vision-and-mission"
+                              href="/vision-and-mission"
                               className="elementor-button-link elementor-button elementor-size-lg"
                               role="button"
                               style={{ backgroundColor: "#f56a01" }}

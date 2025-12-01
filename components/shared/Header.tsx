@@ -448,6 +448,10 @@ export default function Header() {
                     <li><Link href="/health-care">Health Care</Link></li>
                     <li><Link href="/women-hygiene">Women Hygiene</Link></li>
                     <li><Link href="/homeless-support">Homeless Support</Link></li>
+                    <li><Link href="/animal-care">Animal care</Link></li>
+                    <li><Link href="/sponsorship">Sponsorship</Link></li>
+                    <li><Link href="/achievements">Achievements</Link></li>
+                    <li><Link href="/testimonials">Testimonials</Link></li>
                   </ul>
                 </li>
 
