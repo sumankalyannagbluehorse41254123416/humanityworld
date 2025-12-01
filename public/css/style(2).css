@@ -659,6 +659,10 @@ footer .bottom-links li:not(:first-child) {
   display: inline-block;
   font-weight: 700;
 }
+
+.cause-item-style2 .cause-donation-meta h4 i{
+  font-size: 30px;
+}
 .cause-item-style2 .cause-donation-meta > span {
   font-size: 15px;
   margin-left: 10px;
@@ -4699,6 +4703,15 @@ p {
 @media (max-width: 1024px) {
   .donation-style-1 .col-content {
     max-width: 100%;
+  }
+  .elementor-662 .elementor-element.elementor-element-d4e617f{
+    display: none;
+  }
+  .elementor-662 .elementor-element.elementor-element-7f3e878{
+    width: 100%;
+  }
+  .elementor-widget-container .empower_text{
+    padding-top: 65px;
   }
 }
 @media (max-width: 480px) {

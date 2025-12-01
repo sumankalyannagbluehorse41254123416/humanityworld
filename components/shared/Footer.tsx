@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="row">
 
             {/* Logo + Social Icons */}
-            <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-50">
+            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 mt-50">
               <div className="widget widget-box widget_lifeline-blog-post">
                 <a href="/" className="footer_img" target="_blank" rel="noopener noreferrer">
                   <Image

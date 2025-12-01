@@ -279,6 +279,24 @@
 }
 
 @media (max-width: 991px) {
+    .same_ftr_link{
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        flex-direction: column;
+    }
+    .footer_icon{
+        display: flex;
+        justify-content: center;
+        margin-left: 0 !important;
+    }
+    .footer_img{
+        display: flex;
+        justify-content: center;
+    }
+    .footer_img img{
+        height: auto;
+    }
     .product-wrap .woocommerce-product-info form.woocommerce-ordering select.orderby {
         height: 60px;
         width: 335px;
