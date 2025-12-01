@@ -659,9 +659,9 @@ body.menu-active .responsive-wrapper-style2 .res-btn,
     box-shadow: 0 .5em 0 0 #343a40, 0 1em 0 0 #343a40
 }
 
-/* .navigation-portrait .nav-toggle {
+.navigation-portrait .nav-toggle {
     display: block
-} */
+}
 
 .navigation-portrait .nav-menus-wrapper {
     width: 320px;
@@ -755,6 +755,16 @@ body.menu-active .responsive-wrapper-style2 .res-btn,
     font-size: 13px;
     color: #343a40;
     transition: color 0.3s, background 0.3s
+}
+
+@media (max-width:991px){
+    .nav-menu > li > a{
+        color: #000 !important;
+    }
+
+    .nav-menu .donet_button{
+        color: #fff !important;
+    }
 }
 
 .navigation-portrait .nav-menu>li>a {
