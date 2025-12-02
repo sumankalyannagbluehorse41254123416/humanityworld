@@ -56,7 +56,7 @@ export default function AchievementsSection() {
                         <div className="event-style1 row">
                           <div className="col-md-12 text-center mb-2">
                             <a
-                              href="https://humanityworldfoundation.com/achievements"
+                              href="/achievements"
                               className="theme-btn activeBtn align-middle"
                               style={{ backgroundColor: "#f56a01" }}
                             >
