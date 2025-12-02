@@ -758,6 +758,9 @@ body.menu-active .responsive-wrapper-style2 .res-btn,
 }
 
 @media (max-width:991px){
+      .empathy_text{
+        margin-top: 0px !important;
+    }
     .nav-menu > li > a{
         color: #000 !important;
     }
@@ -1855,6 +1858,7 @@ i {
 }
 
 @media (max-width:767px) {
+  
     .elementor-section .elementor-container.elementor-column-gap-default{
         gap: 0;
     }
@@ -2111,7 +2115,7 @@ i {
 }
 
 .container-card {
-    padding: 2px 16px
+    padding: 6px 16px
 }
 
 .vln_img img {
@@ -2281,8 +2285,7 @@ i {
 }
 
 .team_box {
-    padding: 60px 0;
-    padding-bottom: 70px;
+    padding: 0px 0 70px;
     margin-bottom: -70px;
     position: relative
 }
@@ -2306,7 +2309,8 @@ i {
     padding: 15px;
     padding-bottom: 25px;
     margin-top: 80px;
-    border-radius: 10px
+    border-radius: 10px;
+    height: 210px;
 }
 
 .team_inner .team_card img {
@@ -2334,7 +2338,7 @@ i {
     margin-bottom: 5px;
     color: var(--text-primary);
     transition: all 250ms ease-in-out;
-    height: 70px
+    height: 40px
 }
 
 .team_inner .team_card .team_title:hover {
@@ -2386,6 +2390,10 @@ i {
     border-radius: 5px;
     margin: 0 2px;
     transition: all 250ms ease-in-out
+}
+
+.team_inner .team_card ul li a i{
+    font-size: 15px;
 }
 
 .team_inner .team_card ul li a:hover {
@@ -2744,7 +2752,7 @@ i {
 
 @media (max-width:575px) {
     .societal_box {
-        margin-top: unset
+        margin-top: unset !important; 
     }
 
     .societal_box h4 {
@@ -3510,9 +3518,9 @@ i {
     margin-top: unset !important
 }
 
-.vln_details {
+/* .vln_details {
     margin-top: 35px
-}
+} */
 
 .education_mt {
     margin-top: unset !important

@@ -13,7 +13,7 @@ const VolunteersSection = () => {
 
         <div className="row">
 
-          <div className="col-lg-4 col-md-6 col-sm-12 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-12 col-12 pb-4 pb-lg-0">
             <div className="card_1">
               <img 
                 src="/images/1709013946942.jpg" 
@@ -27,7 +27,7 @@ const VolunteersSection = () => {
             </div>
           </div>
 
-          <div className="col-lg-4 col-md-6 col-sm-12 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-12 col-12 pb-4 pb-lg-0">
             <div className="card_1">
               <img 
                 src="/images/1709014653687.png" 
@@ -41,7 +41,7 @@ const VolunteersSection = () => {
             </div>
           </div>
 
-          <div className="col-lg-4 col-md-6 col-sm-12 col-12">
+          <div className="col-lg-4 col-md-6 col-sm-12 col-12 pb-4 pb-lg-0">
             <div className="card_1">
               <img 
                 src="/images/1709014306505.jpg" 
