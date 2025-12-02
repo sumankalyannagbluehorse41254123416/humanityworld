@@ -41,7 +41,7 @@ export default function Footer() {
             </div>
 
             {/* Column: About */}
-            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-12">
+            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6 footer_features">
               <div className="same_ftr_link">
                 <h6>About Us</h6>
                 <ul>
@@ -57,7 +57,7 @@ export default function Footer() {
             </div>
 
             {/* Column: Work */}
-            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6 footer_features">
               <div className="same_ftr_link">
                 <h6>Work</h6>
                 <ul>
@@ -73,7 +73,7 @@ export default function Footer() {
             </div>
 
             {/* Column: Quick Links */}
-            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6 footer_features">
               <div className="same_ftr_link">
                 <h6>Quick Links</h6>
                 <ul>
@@ -86,7 +86,7 @@ export default function Footer() {
             </div>
 
             {/* Column: Policies */}
-            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6">
+            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6 footer_features">
               <div className="same_ftr_link">
                 <h6>Policies</h6>
                 <ul>

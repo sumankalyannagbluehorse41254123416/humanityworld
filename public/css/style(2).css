@@ -660,8 +660,20 @@ footer .bottom-links li:not(:first-child) {
   font-weight: 700;
 }
 
+@media (max-width:767px){
+  .cause-item-style2 .cause-donation-meta h4{
+    font-size: 25px;
+  }
+}
+
 .cause-item-style2 .cause-donation-meta h4 i{
   font-size: 30px;
+}
+
+@media (max-width:767px){
+  .cause-item-style2 .cause-donation-meta h4 i{
+    font-size: 25px;
+  }
 }
 .cause-item-style2 .cause-donation-meta > span {
   font-size: 15px;
@@ -729,6 +741,12 @@ footer .bottom-links li:not(:first-child) {
   line-height: 36px;
   color: #333;
   margin-top: 5px;
+}
+@media (max-width:767px){
+  .cause-item-style2 > h3{
+    font-size: 22px !important;
+    line-height: 28px !important;
+  }
 }
 .event-style1 .event-media img {
   border-radius: 50%;
@@ -1913,7 +1931,7 @@ footer .bottom-links li:not(:first-child) {
 }
 .same_1 span {
   position: relative;
-  top: -3px;
+  top: 0;
 }
 .header-1.header3 {
   position: absolute;
@@ -4701,6 +4719,9 @@ p {
   border-color: #f56a01 #fff0 #fff0 #fff0;
 }
 @media (max-width: 1024px) {
+  .elementor-element-populated .elementor-widget-Gallery .elementor-widget-container .height_fix{
+    height: auto !important;
+  }
   .donation-style-1 .col-content {
     max-width: 100%;
   }

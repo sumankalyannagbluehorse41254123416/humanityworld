@@ -279,16 +279,18 @@
 }
 
 @media (max-width: 991px) {
-    .same_ftr_link{
+    .footer_features{
         display: flex;
-        justify-content: center;
-        /* align-items: center; */
+        /* justify-content: center; */
+        align-items: center;
         flex-direction: column;
+        margin-bottom: 15px;
     }
     .footer_icon{
         display: flex;
         justify-content: center;
         margin-left: 0 !important;
+        margin-bottom: 15px;
     }
     .footer_img{
         display: flex;

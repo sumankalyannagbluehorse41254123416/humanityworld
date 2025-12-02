@@ -29,7 +29,7 @@ export default function ShareStorySection() {
               >
                 <div className="elementor-widget-container">
                   <div
-                    className="row masonry g-0"
+                    className="row masonry g-0 height_fix"
                     style={{ position: "relative", height: "404.688px" }}
                   >
                     <div
