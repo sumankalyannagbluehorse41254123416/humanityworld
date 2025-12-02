@@ -25,7 +25,7 @@ export default function NewsletterSection() {
             <div className="newsletblock15 row">
               
               {/* Logo */}
-              <div className="logo45 col-md-3">
+              <div className="logo45 col-lg-3 col-md-4">
                 <Link href="/" className="logobox4">
                   <Image
                     src="/images/HWF_logo2.png"
@@ -37,7 +37,7 @@ export default function NewsletterSection() {
               </div>
 
               {/* Headings */}
-              <div className="newshead45 col-md-3">
+              <div className="newshead45 col-lg-3 col-md-3">
                 <h2>
                   <strong>NEWSLETTER</strong>
                 </h2>
@@ -45,7 +45,7 @@ export default function NewsletterSection() {
               </div>
 
               {/* Form */}
-              <div className="newsform45 col-md-6">
+              <div className="newsform45 col-lg-6 col-md-5">
                 <form id="subscribemailform" onSubmit={(e) => e.preventDefault()}>
                   <div className="newsinput458">
                     <input

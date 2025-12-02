@@ -1855,8 +1855,11 @@ i {
 }
 
 @media (max-width:767px) {
+    .elementor-section .elementor-container.elementor-column-gap-default{
+        gap: 0;
+    }
     .toarea-new {
-        margin-top: 90px
+        margin-top: 0px
     }
 
     .donet_now_top {
