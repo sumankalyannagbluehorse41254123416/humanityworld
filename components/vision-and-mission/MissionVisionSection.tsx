@@ -9,7 +9,7 @@ export default function MissionVisionSection() {
         </div>
 
         <div className="row">
-          <div className="col-lg-6 col-md-12 col-sm-12 col-12">
+          <div className="col-lg-6 col-md-12 col-sm-12 col-12 pb-4 pb-lg-0">
             <div className="mv">
               <h2>HWF's Vision</h2>
               <h6></h6>
@@ -25,7 +25,7 @@ export default function MissionVisionSection() {
             </div>
           </div>
 
-          <div className="col-lg-6 col-md-12 col-sm-12 col-12">
+          <div className="col-lg-6 col-md-12 col-sm-12 col-12 pb-4 pb-lg-0">
             <div className="mv">
               <h2>HWF's Mission</h2>
               <h6></h6>
