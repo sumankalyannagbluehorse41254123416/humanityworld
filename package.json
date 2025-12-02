@@ -11,8 +11,10 @@
   "dependencies": {
     "jquery": "^3.7.1",
     "next": "16.0.4",
+    "owl.carousel": "^2.3.4",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "react-owl-carousel": "^2.3.3",
     "remixicon": "^4.7.0"
   },
   "devDependencies": {
