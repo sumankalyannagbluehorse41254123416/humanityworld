@@ -1,7 +1,9 @@
 "use client";
 
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import React from "react";
 import Image from "next/image";
+
 
 const mentors = [
   {

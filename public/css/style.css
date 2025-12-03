@@ -757,15 +757,16 @@ body.menu-active .responsive-wrapper-style2 .res-btn,
     transition: color 0.3s, background 0.3s
 }
 
-@media (max-width:991px){
-      .empathy_text{
+@media (max-width:991px) {
+    .empathy_text {
         margin-top: 0px !important;
     }
-    .nav-menu > li > a{
+
+    .nav-menu>li>a {
         color: #000 !important;
     }
 
-    .nav-menu .donet_button{
+    .nav-menu .donet_button {
         color: #fff !important;
     }
 }
@@ -1858,10 +1859,11 @@ i {
 }
 
 @media (max-width:767px) {
-  
-    .elementor-section .elementor-container.elementor-column-gap-default{
+
+    .elementor-section .elementor-container.elementor-column-gap-default {
         gap: 0;
     }
+
     .toarea-new {
         margin-top: 0px
     }
@@ -1869,6 +1871,7 @@ i {
     .donet_now_top {
         display: initial !important;
     }
+
     /* .donet_button{
         display: none !important;
     } */
@@ -1879,7 +1882,7 @@ i {
         height: unset;
         margin-bottom: 30px
     }
-    
+
     #navigation1 .nav-header .nav-brand img {
         width: 182px;
     }
@@ -2392,7 +2395,7 @@ i {
     transition: all 250ms ease-in-out
 }
 
-.team_inner .team_card ul li a i{
+.team_inner .team_card ul li a i {
     font-size: 15px;
 }
 
@@ -2435,6 +2438,10 @@ i {
     border-radius: 0 0 0 15px;
     padding-left: 2px;
     transition: all 250ms ease-in-out
+}
+
+.team_about_modal .modal-content .close_modal i {
+    font-size: 22px;
 }
 
 .team_about_modal .modal-content .close_modal:hover {
@@ -2519,6 +2526,10 @@ i {
     line-height: 30px;
     text-align: center;
     transition: all 250ms ease-in-out
+}
+
+.team_about_modal .modal-content .mt_header .mt_con ul li a i {
+    font-size: 15px;
 }
 
 .team_about_modal .modal-content .mt_header .mt_con ul li a:hover {
@@ -2752,7 +2763,7 @@ i {
 
 @media (max-width:575px) {
     .societal_box {
-        margin-top: unset !important; 
+        margin-top: unset !important;
     }
 
     .societal_box h4 {
@@ -3847,7 +3858,8 @@ i {
     padding: 0 10px;
     color: #6b195a
 }
-.footer_icon i{
+
+.footer_icon i {
     font-size: 30px;
 }
 

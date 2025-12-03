@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "jquery": "^3.7.1",
     "next": "16.0.4",
     "owl.carousel": "^2.3.4",
