@@ -11,6 +11,9 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+     "baseUrl": ".",
+    "paths": {},
+    "typeRoots": ["./types", "./node_modules/@types"],
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
@@ -31,4 +34,6 @@
     "**/*.mts"
   ],
   "exclude": ["node_modules"]
+  
 }
+

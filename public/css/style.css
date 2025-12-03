@@ -758,6 +758,13 @@ body.menu-active .responsive-wrapper-style2 .res-btn,
 }
 
 @media (max-width:991px) {
+    #spnsor .sponsor_content22 p{
+        margin-top: 0;
+    }
+    #health_care .my {
+        margin-top: 0px
+    }
+
     .empathy_text {
         margin-top: 0px !important;
     }
@@ -1878,6 +1885,10 @@ i {
 }
 
 @media(max-width:575px) {
+    #health_care .none_pera_title p {
+        margin-top: 0;
+    }
+
     .mv {
         height: unset;
         margin-bottom: 30px
@@ -2825,6 +2836,14 @@ i {
         margin-bottom: 40px
     }
 
+    .work_heading.animal_heading {
+        margin-bottom: 0px
+    }
+
+    .work_heading.animal_heading h2 {
+        margin-bottom: 10px
+    }
+
     #health_care {
         padding: 30px 10px 30px 10px !important
     }
@@ -3081,7 +3100,7 @@ i {
 }
 
 .testimonial-area {
-    background: var(--blue);
+    background: #007bff;
     position: relative;
     z-index: 2;
     padding: 50px 0
@@ -3129,9 +3148,9 @@ i {
 .single-testimonial::before {
     content: "";
     position: absolute;
-    left: -35px;
+    left: -45px;
     top: -35px;
-    background: url("https://i.ibb.co/nb8Hjms/quote.png") no-repeat var(--blue);
+    background: url("https://i.ibb.co/nb8Hjms/quote.png") no-repeat #007bff;
     background-size: 60%;
     width: 126px;
     height: 100px;
@@ -3144,7 +3163,7 @@ i {
     position: absolute;
     right: -35px;
     bottom: -34px;
-    background: url("https://i.ibb.co/nb8Hjms/quote.png") no-repeat var(--blue);
+    background: url("https://i.ibb.co/nb8Hjms/quote.png") no-repeat #007bff;
     background-size: 60%;
     width: 126px;
     height: 100px;
@@ -3268,6 +3287,10 @@ i {
 }
 
 @media(max-width:575px) {
+    .home_less_img img {
+        height: auto;
+    }
+
     .testimonial-area .owl-carousel {
         padding: 0 30px;
         margin: 0 -20px

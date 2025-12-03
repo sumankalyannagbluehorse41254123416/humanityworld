@@ -62,7 +62,7 @@ export default function SponsorshipSection() {
             </div>
           </div>
 
-          <div className="col-lg-6 mt-5">
+          <div className="col-lg-6 mt-lg-5">
             <div className="sponsor_content sponsor_content22">
               <p>
                 By contributing to our cause, you can contribute to the

@@ -32,6 +32,9 @@ import "../public/css/magnific-popup.css";
 import "../public/css/main.css";
 import "../public/css/nice-select.css";
 import "../public/css/owl.carousel.min.css";
+
+
+
 import "../public/css/post-7.css";
 import "../public/css/post-662.css";
 import "../public/css/post-2995.css";
