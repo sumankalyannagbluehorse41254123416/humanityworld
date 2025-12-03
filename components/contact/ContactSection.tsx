@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export default function ContactSection() {
-  
+
   const savecontact = () => {
     alert("Form submitted! (Connect backend here)");
   };
@@ -34,11 +34,7 @@ export default function ContactSection() {
                   CONTACT US
                 </h2>
                 <p>
-                  We sincerely thank you for taking the time to explore our
-                  website. Your presence is highly valued, and we're grateful
-                  for your interest in connecting with us. Kindly take a moment
-                  to complete the form below, and we assure you that we will
-                  respond to your inquiry within 24-48 hours.
+                  We sincerely thank you for taking the time to explore our website. Your presence is highly valued, and we're grateful for your interest in connecting with us. Kindly take a moment to complete the form below, and we assure you that we will respond to your inquiry within 24-48 hours. Your input is essential to us as we strive to make a meaningful difference in the lives of those we serve. Thank you once again for considering HWF.
                 </p>
               </div>
 
@@ -77,76 +73,84 @@ export default function ContactSection() {
             </div>
 
             {/* CONTACT FORM */}
-            <form id="contact-form">
-              <div className="row mid-spacing">
-                <div className="form-group col-lg-6 col-md-6 col-sm-12">
-                  <input
-                    type="text"
-                    className="name"
-                    name="name"
-                    id="name"
-                    required
-                    placeholder="Enter Your Name"
-                  />
-                </div>
+            <div className="elementor-element elementor-element-dc8ebdf elementor-widget elementor-widget-shortcode">
+              <div className="elementor-widget-container">
+                <div className="elementor-shortcode">
+                  <div className="wpcf7 js" id="wpcf7-f5312-p3449-o1">
+                    <form id="contact-form">
+                      <div className="row mid-spacing">
+                        <div className="form-group col-lg-6 col-md-6 col-sm-12">
+                          <input
+                            type="text"
+                            className="name"
+                            name="name"
+                            id="name"
+                            required
+                            placeholder="Enter Your Name"
+                          />
+                        </div>
 
-                <div className="form-group col-lg-6 col-md-6 col-sm-12">
-                  <input
-                    type="text"
-                    className="phone"
-                    name="phone"
-                    id="phone"
-                    required
-                    placeholder="Enter Your Mobile Number"
-                  />
-                </div>
+                        <div className="form-group col-lg-6 col-md-6 col-sm-12">
+                          <input
+                            type="text"
+                            className="phone"
+                            name="phone"
+                            id="phone"
+                            required
+                            placeholder="Enter Your Mobile Number"
+                          />
+                        </div>
 
-                <div className="form-group col-lg-6 col-md-6 col-sm-12">
-                  <input
-                    type="email"
-                    className="con-email"
-                    name="email"
-                    id="email"
-                    required
-                    placeholder="Your email address"
-                  />
-                </div>
+                        <div className="form-group col-lg-6 col-md-6 col-sm-12">
+                          <input
+                            type="email"
+                            className="con-email"
+                            name="email"
+                            id="email"
+                            required
+                            placeholder="Your email address"
+                          />
+                        </div>
 
-                <div className="form-group col-lg-6 col-md-6 col-sm-12">
-                  <input
-                    type="text"
-                    name="sub"
-                    id="subject"
-                    required
-                    placeholder="Subject"
-                  />
-                </div>
+                        <div className="form-group col-lg-6 col-md-6 col-sm-12">
+                          <input
+                            type="text"
+                            name="sub"
+                            id="subject"
+                            required
+                            placeholder="Subject"
+                          />
+                        </div>
 
-                <div className="form-group col-lg-12 col-md-12 col-sm-12">
-                  <textarea
-                    name="contact_message"
-                    id="message"
-                    required
-                    className="message form-control"
-                    placeholder="Write your message..."
-                  />
-                </div>
+                        <div className="form-group col-lg-12 col-md-12 col-sm-12">
+                          <textarea
+                            name="contact_message"
+                            id="message"
+                            required
+                            className="message form-control"
+                            placeholder="Write your message..."
+                          />
+                        </div>
 
-                <div className="form-group col-lg-12 col-md-12 col-sm-12">
-                  <button
-                    className="theme-btn btn-style-four"
-                    type="button"
-                    style={{ color: "#f46a01" }}
-                    onClick={savecontact}
-                  >
-                    Send Message
-                  </button>
+                        <div className="form-group col-lg-12 col-md-12 col-sm-12">
+                          <button
+                            className="theme-btn btn-style-four"
+                            type="button"
+                            style={{ color: "#f46a01" }}
+                            onClick={savecontact}
+                          >
+                            Send Message
+                          </button>
 
-                  <div id="msgSubmit" className="text-center text-info h4 hidden contact_gap" />
-                  <div id="msgSuccess" className="text-center text-success h4 hidden contact_gap" />
+                          <div id="msgSubmit" className="text-center text-info h4 hidden contact_gap" />
+                          <div id="msgSuccess" className="text-center text-success h4 hidden contact_gap" />
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 

@@ -933,7 +933,7 @@ h1.entry-title {
   }
   .elementor-column.elementor-col-50,
   .elementor-column[data-col="50"] {
-    width: 50%;
+    width: 45%;
   }
   .elementor-column.elementor-col-60,
   .elementor-column[data-col="60"] {
