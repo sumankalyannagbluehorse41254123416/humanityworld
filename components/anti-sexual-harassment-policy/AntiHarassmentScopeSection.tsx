@@ -16,7 +16,6 @@ export default function AntiHarassmentScopeSection() {
                 respect.
               </p>
 
-
               <div className="all_heading_t">
                 <h2>Scope</h2>
               </div>
