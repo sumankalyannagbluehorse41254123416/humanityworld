@@ -50,6 +50,7 @@ import "../public/css/style.min(2).css";
 import "../public/css/style(1).css";
 import "../public/css/style(2).css";
 import "../public/css/styles.css";
+
 // import "../public/css/wc-blocks-style.css";
 import "../public/css/wc-blocks-vendors-style.css";
 import "../public/css/widget-icon-box.min.css";
