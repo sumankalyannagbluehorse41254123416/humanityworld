@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/shared/Header";
 import 'remixicon/fonts/remixicon.css';
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 

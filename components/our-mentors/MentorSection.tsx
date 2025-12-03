@@ -1,9 +1,8 @@
 "use client";
 
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect } from "react";
 import Image from "next/image";
-
 
 const mentors = [
   {
@@ -54,6 +53,12 @@ const mentors = [
 ];
 
 export default function MentorSection() {
+
+  // 👉 Fix Bootstrap JS execution on client only
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+
   return (
     <section className="team_box">
       <div className="container">

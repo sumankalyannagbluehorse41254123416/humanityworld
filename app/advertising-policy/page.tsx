@@ -6,6 +6,7 @@ import AdvertisingTechSection from "@/components/advertising-policy/AdvertisingT
 import LocationSection from "@/components/advertising-policy/LocationSection";
 import AdvertisingIdentifiersSection from "@/components/advertising-policy/AdvertisingIdentifiersSection";
 import AdDecisionSection from "@/components/advertising-policy/AdDecisionSection";
+
 export default function AdvertisingPolicyPage() {
     return (
         <>
@@ -17,6 +18,7 @@ export default function AdvertisingPolicyPage() {
             <LocationSection/>
             <AdvertisingIdentifiersSection/>
             <AdDecisionSection/>
+            
         </>
     );
 }
