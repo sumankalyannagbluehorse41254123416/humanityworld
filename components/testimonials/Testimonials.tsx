@@ -85,6 +85,7 @@ const testimonials = [
         title: "Designer, LLCG Team",
         text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been &amp;nbsp;the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley &amp;nbsp;of type and scrambled it to make a type specimen book.",
     },
+    
 ];
 
 export default function Testimonials() {
@@ -110,8 +111,8 @@ export default function Testimonials() {
                 if ($ && carouselRef.current) {
                     $(carouselRef.current).owlCarousel({
                         loop: true,
-                        margin: 24,
-                        nav: true,
+                        margin: 12,
+                        nav: false,
                         dots: true,
                         autoplay: true,
                         autoplayTimeout: 5000,
@@ -120,8 +121,8 @@ export default function Testimonials() {
                             0: {
                                 items: 1
                             },
-                            768: {
-                                items: 2
+                            991: {
+                                items: 1
                             },
                             1024: {
                                 items: 2
@@ -163,7 +164,9 @@ export default function Testimonials() {
                     {testimonials.map((item, index) => (
                         <div className="item" key={index}>
                             <div className="single-testimonial">
-                                <p className="text-gray-600">{item.text}</p>
+                                <div className="round-1 round"></div>
+                                <div className="round-2 round"></div>
+                                <p>{item.text}</p>
 
                                 <div className="client-info">
                                     <div className="client-video">
@@ -177,8 +180,8 @@ export default function Testimonials() {
                                     </div>
 
                                     <div className="client-details">
-                                        <h6 className="font-bold text-lg">{item.name}</h6>
-                                        <span className="text-sm text-gray-500">{item.title}</span>
+                                        <h6 className="">{item.name}</h6>
+                                        <span className="">{item.title}</span>
                                     </div>
                                 </div>
                             </div>

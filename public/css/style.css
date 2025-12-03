@@ -3278,10 +3278,12 @@ i {
 }
 
 .testimonial-content .owl-dots {
-    text-align: center;
-    margin-top: 50px
+    text-align: center !important;
+    margin-top: 50px !important;
 }
-
+.testimonial-content .owl-dots span{
+    display: none !important;
+}
 .testimonial-content .owl-dots button.active {
     width: 30px
 }
