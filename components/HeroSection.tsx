@@ -77,7 +77,6 @@ const HeroSection = () => {
                               className="elementor-button-link elementor-button elementor-size-lg"
                               role="button"
                               style={{ backgroundColor: "#f56a01" }}
-                              target="_blank"
                             >
                               <span className="elementor-button-content-wrapper">
                                 <span className="elementor-button-text">
