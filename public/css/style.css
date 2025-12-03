@@ -758,9 +758,14 @@ body.menu-active .responsive-wrapper-style2 .res-btn,
 }
 
 @media (max-width:991px) {
-    #spnsor .sponsor_content22 p{
+    .elementor-section .elementor-container.elementor-column-gap-default {
+        gap: 45px;
+    }
+
+    #spnsor .sponsor_content22 p {
         margin-top: 0;
     }
+
     #health_care .my {
         margin-top: 0px
     }
@@ -1867,6 +1872,8 @@ i {
 
 @media (max-width:767px) {
 
+
+
     .elementor-section .elementor-container.elementor-column-gap-default {
         gap: 0;
     }
@@ -2067,6 +2074,7 @@ i {
 }
 
 @media (max-width:768px) {
+
     .team__item {
         height: 350px
     }
@@ -2737,7 +2745,8 @@ i {
     padding-top: 30px;
     text-align: justify;
     font-size: 17px;
-    line-height: 26px
+    line-height: 26px;
+    font-family: 'Quicksand', sans-serif !important;
 }
 
 .elementor-3449 .elementor-element.elementor-element-52cd97f .elementor-heading-title {
@@ -3281,9 +3290,11 @@ i {
     text-align: center !important;
     margin-top: 50px !important;
 }
-.testimonial-content .owl-dots span{
+
+.testimonial-content .owl-dots span {
     display: none !important;
 }
+
 .testimonial-content .owl-dots button.active {
     width: 30px
 }
@@ -3300,6 +3311,14 @@ i {
 
     .sec-title.white-title h2 {
         font-size: 47px
+    }
+
+    .testimonial-area .sec-title.white-title h2 {
+        font-size: 37px
+    }
+
+    .single-testimonial p {
+        padding: 50px 20px 30px;
     }
 
     .left_education_text {
@@ -3346,6 +3365,10 @@ i {
 }
 
 @media(max-width:575px) {
+    .gallery_box {
+        padding-bottom: 10px !important;
+    }
+
     .inrDonation {
         width: unset;
         padding: 20px
