@@ -7,265 +7,6 @@
 
 // export default function Header() {
 //   useEffect(() => {
-//     // We load jQuery only in browser mode
-//     if (typeof window !== "undefined") {
-//       import("jquery").then(() => {
-//         // Load Navigation script
-//         (function ($: any) {
-//           if ($.fn.navigation) {
-//             $("#navigation1").navigation();
-//             $("#always-hidden-nav").navigation({ hidden: true });
-//           }
-//         })($);
-//       });
-//     }
-//   }, []);
-
-//   return (
-//     <header className="header_area" id="mynav">
-//       <div className="main_header_area animated">
-//         <div className="container">
-//           <nav id="navigation1" className="navigation">
-//             <div className="nav-header">
-//               <Link className="nav-brand" href="/">
-//                 <Image
-//                   width={210}
-//                   height={47.21}
-//                   src="/images/HWF_logo2.png"
-//                   alt="Logo"
-//                 />
-//               </Link>
-
-//               <div>
-//                 <Link href="/donate" className="donet_now_top">
-//                   Donate Now
-//                 </Link>
-//               </div>
-
-//               <div className="nav-toggle"></div>
-//             </div>
-
-//             {/* Menu */}
-//             <div className="nav-menus-wrapper">
-//               <ul className="nav-menu align-to-right">
-
-//                 <li><Link href="/">Home</Link></li>
-
-//                 <li>
-//                   <a href="#">About Us</a>
-//                   <ul className="nav-dropdown">
-//                     <li><Link href="/who-we-are">Who We Are</Link></li>
-//                     <li><Link href="/our-approach">Our Approach</Link></li>
-//                     <li><Link href="/vision-and-mission">Vision & Mission</Link></li>
-//                     <li><Link href="/our-team">Our Team</Link></li>
-//                     <li><Link href="/our-volunteers">Our Volunteers</Link></li>
-//                     <li><Link href="/our-mentors">Our Mentors</Link></li>
-//                     <li><Link href="/careers">Careers</Link></li>
-//                   </ul>
-//                 </li>
-
-//                 <li>
-//                   <a href="#">Work</a>
-//                   <ul className="nav-dropdown">
-//                     <li><Link href="/education">Education</Link></li>
-//                     <li><Link href="/health-care">Health Care</Link></li>
-//                     <li><Link href="/women-hygiene">Women Hygiene</Link></li>
-//                     <li><Link href="/homeless-support">Homeless Support</Link></li>
-//                   </ul>
-//                 </li>
-
-//                 <li><Link href="/gallery">Gallery</Link></li>
-//                 <li><Link href="/contact">Contact Us</Link></li>
-
-//                 <li>
-//                   <Link href="/donate" className="donet_button">
-//                     Donate Now
-//                   </Link>
-//                 </li>
-
-//               </ul>
-//             </div>
-//           </nav>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// }
-
-
-
-// "use client";
-
-// import { useEffect } from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-// import $ from "jquery";
-
-// export default function Header() {
-//   useEffect(() => {
-//     if (typeof window !== "undefined") {
-//       import("jquery").then(() => {
-//         (function ($: any) {
-//           if ($.fn.navigation) {
-//             $("#navigation1").navigation();
-//             $("#always-hidden-nav").navigation({ hidden: true });
-//           }
-
-//           // >>> Hover show/hide with smooth animation <
-//           $(".nav-menu > li").each(function (this: HTMLElement) {
-//             const li = $(this);
-//             const drop = li.children(".nav-dropdown");
-
-//             if (drop.length === 0) return;
-
-//             // Initially hide the dropdown
-//             drop.css({
-//               overflow: "hidden",
-//               height: "0px",
-//               display: "none",
-//             });
-
-//             let animating = false;
-//             let isHovering = false;
-
-//             function animateHeight(
-//               element: JQuery,
-//               to: number,
-//               duration = 250,
-//               onComplete?: () => void
-//             ) {
-//               if (animating) return;
-//               animating = true;
-
-//               const start = element.height() || 0;
-//               const startTime = performance.now();
-
-//               function step(time: number) {
-//                 const progress = Math.min((time - startTime) / duration, 1);
-//                 const current = start + (to - start) * progress;
-//                 element.height(current);
-
-//                 if (progress < 1) {
-//                   requestAnimationFrame(step);
-//                 } else {
-//                   animating = false;
-//                   if (onComplete) onComplete();
-//                 }
-//               }
-
-//               requestAnimationFrame(step);
-//             }
-
-//             li.hover(
-//               function (this: HTMLElement) {
-//                 // Mouse enters
-//                 isHovering = true;
-//                 drop.css({ display: "block" });
-//                 const fullHeight = drop[0].scrollHeight;
-//                 animateHeight(drop, fullHeight);
-//               },
-//               function (this: HTMLElement) {
-//                 // Mouse leaves
-//                 isHovering = false;
-//                 animateHeight(drop, 0, 250, () => {
-//                   // Only hide if still not hovering after animation completes
-//                   if (!isHovering && drop.height() === 0) {
-//                     drop.css({ display: "none" });
-//                   }
-//                 });
-//               }
-//             );
-//           });
-//           // <<< End smooth animation >>>
-
-//         })($);
-//       });
-//     }
-//   }, []);
-
-//   return (
-//     <header className="header_area" id="mynav">
-//       <div className="main_header_area animated">
-//         <div className="container">
-//           <nav id="navigation1" className="navigation">
-//             <div className="nav-header">
-//               <Link className="nav-brand" href="/">
-//                 <Image
-//                   width={210}
-//                   height={47.21}
-//                   src="/images/HWF_logo2.png"
-//                   alt="Logo"
-//                 />
-//               </Link>
-
-//               <div>
-//                 <Link href="/donate" className="donet_now_top">
-//                   Donate Now
-//                 </Link>
-//               </div>
-
-//               <div className="nav-toggle"></div>
-//             </div>
-
-//             <div className="nav-menus-wrapper">
-//               <ul className="nav-menu align-to-right">
-
-//                 <li><Link href="/">Home</Link></li>
-
-//                 <li>
-//                   <a href="#">About Us</a>
-//                   <ul className="nav-dropdown">
-//                     <li><Link href="/who-we-are">Who We Are</Link></li>
-//                     <li><Link href="/our-approach">Our Approach</Link></li>
-//                     <li><Link href="/vision-and-mission">Vision & Mission</Link></li>
-//                     <li><Link href="/our-team">Our Team</Link></li>
-//                     <li><Link href="/our-volunteers">Our Volunteers</Link></li>
-//                     <li><Link href="/our-mentors">Our Mentors</Link></li>
-//                     <li><Link href="/careers">Careers</Link></li>
-//                   </ul>
-//                 </li>
-
-//                 <li>
-//                   <a href="#">Work</a>
-//                   <ul className="nav-dropdown">
-//                     <li><Link href="/education">Education</Link></li>
-//                     <li><Link href="/health-care">Health Care</Link></li>
-//                     <li><Link href="/women-hygiene">Women Hygiene</Link></li>
-//                     <li><Link href="/homeless-support">Homeless Support</Link></li>
-//                   </ul>
-//                 </li>
-
-//                 <li><Link href="/gallery">Gallery</Link></li>
-//                 <li><Link href="/contact">Contact Us</Link></li>
-
-//                 <li>
-//                   <Link href="/donate" className="donet_button">
-//                     Donate Now
-//                   </Link>
-//                 </li>
-
-//               </ul>
-//             </div>
-//           </nav>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// }
-
-
-
-
-
-// "use client";
-
-// import { useEffect } from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-// import $ from "jquery";
-
-// export default function Header() {
-//   useEffect(() => {
 //     if (typeof window !== "undefined") {
 //       import("jquery").then(() => {
 //         (function ($: any) {
@@ -663,6 +404,13 @@ export default function Header() {
         const overlay = $(".nav-overlay-panel");
         const wrapper = $(".nav-menus-wrapper");
 
+        // Function to close mobile menu
+        function closeMobileMenu() {
+          wrapper.removeClass("nav-menus-wrapper-open");
+          wrapper.css("transition-property", "none");
+          overlay.css("display", "none");
+        }
+
         // Toggle open/close
         $(".nav-toggle").on("click", function () {
           wrapper.toggleClass("nav-menus-wrapper-open");
@@ -671,23 +419,82 @@ export default function Header() {
             wrapper.css("transition-property", "left");
             overlay.css("display", "block");
           } else {
-            wrapper.css("transition-property", "none");
-            overlay.css("display", "none");
+            closeMobileMenu();
           }
         });
 
         // Close button
         $(".nav-menus-wrapper-close-button").on("click", function () {
-          wrapper.removeClass("nav-menus-wrapper-open");
-          wrapper.css("transition-property", "none");
-          overlay.css("display", "none");
+          closeMobileMenu();
         });
 
         // Click overlay to close
         overlay.on("click", function () {
-          wrapper.removeClass("nav-menus-wrapper-open");
-          wrapper.css("transition-property", "none");
-          overlay.css("display", "none");
+          closeMobileMenu();
+        });
+
+        // >>> Mobile menu: Close menu when clicking any link <<<
+        $(document).on("click", ".nav-menu a", function (event: JQuery.ClickEvent) {
+          // Check if we're in mobile mode (portrait)
+          const isMobile = $("#navigation1").hasClass("navigation-portrait");
+          
+          if (isMobile) {
+            // If it's a dropdown parent link (has #), don't navigate, just prevent default
+            if ($(this).attr("href") === "#") {
+              event.preventDefault();
+              const parentLi = $(this).parent("li");
+              const dropdown = parentLi.children(".nav-dropdown");
+              
+              if (dropdown.length > 0) {
+                // Toggle mobile dropdown
+                if (dropdown.is(":visible")) {
+                  closeDropdown(dropdown);
+                } else {
+                  // Close other dropdowns first
+                  $(".nav-dropdown").not(dropdown).each(function () {
+                    if ($(this).is(":visible")) {
+                      closeDropdown($(this));
+                    }
+                  });
+                  openDropdown(dropdown);
+                }
+              }
+            } else {
+              // It's a regular link (Home, Gallery, Contact, etc.)
+              // Close the mobile menu and let the link work normally
+              closeMobileMenu();
+            }
+          }
+        });
+
+        // >>> Mobile menu: Handle dropdowns <<<
+        // Add click handlers for mobile dropdowns
+        $(".nav-menu > li > a").on("click", function (event: JQuery.ClickEvent) {
+          const isMobile = $("#navigation1").hasClass("navigation-portrait");
+          
+          if (isMobile) {
+            const href = $(this).attr("href");
+            const parentLi = $(this).parent("li");
+            const dropdown = parentLi.children(".nav-dropdown");
+            
+            // If it's a dropdown parent and we're in mobile mode
+            if (href === "#" && dropdown.length > 0) {
+              event.preventDefault();
+              event.stopPropagation();
+              
+              if (dropdown.is(":visible")) {
+                closeDropdown(dropdown);
+              } else {
+                // Close other dropdowns first
+                $(".nav-dropdown").not(dropdown).each(function () {
+                  if ($(this).is(":visible")) {
+                    closeDropdown($(this));
+                  }
+                });
+                openDropdown(dropdown);
+              }
+            }
+          }
         });
         // <<< End Overlay & Transition Control >>>
 
