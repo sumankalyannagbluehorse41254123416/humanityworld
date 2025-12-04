@@ -1892,6 +1892,24 @@ i {
 }
 
 @media(max-width:575px) {
+
+    .first_pera,
+    #terms,
+    #web_intro,
+    #copy_right,
+    #data,
+    #condact,
+    #donor,
+    #prop,
+    #LINKS,
+    #limitation,
+    #indimenificution,
+    #aggre,
+    #law,
+    #contact_us {
+        padding: 20px 0 !important;
+    }
+
     #health_care .none_pera_title p {
         margin-top: 0;
     }
