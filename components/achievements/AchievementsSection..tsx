@@ -20,7 +20,7 @@ export default function AchievementsSection() {
           <div className="col-lg-6 col-md-12 col-sm-12 col-12">
             <div className="impact_img">
               <img
-                src="images/1692611879823.jpg"
+                src="/images/1692611879823.jpg"
                 alt="impact_img"
               />
             </div>
