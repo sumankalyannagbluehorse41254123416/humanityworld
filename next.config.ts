@@ -9,6 +9,11 @@ const nextConfig = {
         port: "3304",
         pathname: "/admin/module/**",
       },
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+        pathname: "/**", // allow all images
+      },
     ],
   },
 };

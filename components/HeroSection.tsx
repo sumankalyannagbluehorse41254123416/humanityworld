@@ -2,18 +2,30 @@
 import React from "react";
 import Link from "next/link";
 
-const HeroSection = () => {
+interface HeroProps {
+  data: {
+    title?: string;
+    shortDescription?: string;
+    imageUrl?: string;
+  };
+}
+
+const HeroSection: React.FC<HeroProps> = ({ data }) => {
   return (
     <div
       data-elementor-type="wp-page"
       data-elementor-id="662"
       className="elementor elementor-662"
+      style={{
+        backgroundImage: `url(${data?.imageUrl || "/images/home banner.jpg"})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
       <section
         className="elementor-section elementor-top-section elementor-element elementor-element-630742a elementor-section-full_width elementor-section-height-default elementor-section-height-default"
         data-id="630742a"
         data-element_type="section"
-        data-settings='{"background_background":"classic"}'
       >
         <div className="elementor-container elementor-column-gap-default">
           <div
@@ -28,6 +40,7 @@ const HeroSection = () => {
                 data-element_type="section"
               >
                 <div className="elementor-container elementor-column-gap-default">
+                  
                   {/* Left Column */}
                   <div
                     className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-948bcaf"
@@ -35,21 +48,22 @@ const HeroSection = () => {
                     data-element_type="column"
                   >
                     <div className="elementor-widget-wrap elementor-element-populated hwf_pp_img">
-                      {/* Heading 1 */}
+
+                      {/* Dynamic Title */}
                       <div
-                        className="elementor-element elementor-element-f3298b2 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading"
+                        className="elementor-element elementor-element-f3298b2 elementor-widget elementor-widget-heading"
                         data-id="f3298b2"
                         data-element_type="widget"
                         data-widget_type="heading.default"
                       >
                         <div className="elementor-widget-container">
                           <h2 className="elementor-heading-title elementor-size-default">
-                            Empowering Lives, Creating Smiles
+                            {data?.title || "Loading..."}
                           </h2>
                         </div>
                       </div>
 
-                      {/* Heading 2 */}
+                      {/* Dynamic Short Description */}
                       <div
                         className="elementor-element elementor-element-e92cba6 elementor-widget elementor-widget-heading"
                         data-id="e92cba6"
@@ -58,7 +72,7 @@ const HeroSection = () => {
                       >
                         <div className="elementor-widget-container">
                           <span className="elementor-heading-title elementor-size-medium">
-                            HWF - Where Compassion Meets Action
+                            {data?.shortDescription || ""}
                           </span>
                         </div>
                       </div>
@@ -87,6 +101,7 @@ const HeroSection = () => {
                           </div>
                         </div>
                       </div>
+
                     </div>
                   </div>
 
@@ -95,19 +110,12 @@ const HeroSection = () => {
                     className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-2884936"
                     data-id="2884936"
                     data-element_type="column"
-                    data-settings='{"background_background":"classic"}'
                   >
                     <div className="elementor-widget-wrap elementor-element-populated">
-                      <div
-                        className="elementor-element elementor-element-173bcdf elementor-view-stacked pulse elementor-shape-circle elementor-widget elementor-widget-icon"
-                        data-id="173bcdf"
-                        data-element_type="widget"
-                        data-widget_type="icon.default"
-                      >
-                        {/* Empty Placeholder - Preserved */}
-                      </div>
+                      {/* You may later place dynamic image or element here */}
                     </div>
                   </div>
+
                 </div>
               </section>
             </div>

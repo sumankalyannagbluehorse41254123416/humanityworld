@@ -1,7 +1,19 @@
 "use client";
 import Image from "next/image";
 
-export default function SupportSection() {
+interface Subsection {
+  image?: string;
+  description?: string; // donation
+  title?: string;
+}
+
+interface SupportData {
+  title: string; // section title → h2
+  sectionShortDescription: string; // LOCATION comes from here
+  subsections: Subsection[];
+}
+
+export default function SupportSection({ data }: { data: SupportData }) {
   return (
     <div
       data-elementor-type="wp-page"
@@ -21,7 +33,7 @@ export default function SupportSection() {
           >
             <div className="elementor-widget-wrap elementor-element-populated">
 
-              {/* Heading */}
+              {/* Dynamic Heading */}
               <div
                 className="elementor-element elementor-element-5d3e5aa elementor-widget elementor-widget-heading"
                 data-id="5d3e5aa"
@@ -29,12 +41,12 @@ export default function SupportSection() {
               >
                 <div className="elementor-widget-container">
                   <h2 className="elementor-heading-title elementor-size-default help_box">
-                    Support to Transform Lives
+                    {data?.title}
                   </h2>
                 </div>
               </div>
 
-              {/* Causes List */}
+              {/* Dynamic Cause List */}
               <div
                 className="elementor-element elementor-element-lifeline_causes elementor-widget elementor-widget-Causes"
                 data-id="lifeline_causes"
@@ -43,33 +55,20 @@ export default function SupportSection() {
                 <div className="elementor-widget-container">
                   <div className="row" data-options="[]">
 
-                    {/* Card 1 */}
-                    <CauseCard
-                      img="/images/1703153974053.png"
-                      donation="55001"
-                      title="Empowering Girl Education: Fueling Fundraising Efforts"
-                      location="Maharashtra"
-                    />
-
-                    {/* Card 2 */}
-                    <CauseCard
-                      img="/images/1709027330030.jpg"
-                      donation="334000"
-                      title="Supporting Women's Well-being: Women's Hygiene Initiative"
-                      location="Maharashtra"
-                    />
-
-                    {/* Card 3 */}
-                    <CauseCard
-                      img="/images/1709012254609.jpg"
-                      donation="110000"
-                      title="Animal Care Initiative: Fundraising for Animal Welfare"
-                      location="Maharashtra"
-                    />
+                    {data?.subsections?.map((item, i) => (
+                      <CauseCard
+                        key={i}
+                        img={item.image || "/images/default.png"}
+                        donation={item.description || "0"}
+                        title={item.title || ""}
+                        location={data.sectionShortDescription || ""} // FIXED ✔
+                      />
+                    ))}
 
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -108,14 +107,7 @@ const CauseCard = ({ img, donation, title, location }: CauseCardProps) => {
 
           <div className="donation-bar">
             <div className="progress">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                style={{ width: "59.998909110743%" }}
-                aria-valuenow={25}
-                aria-valuemin={0}
-                aria-valuemax={100}
-              ></div>
+              <div className="progress-bar" style={{ width: "59.998909110743%" }}></div>
             </div>
           </div>
         </div>

@@ -1,7 +1,17 @@
 "use client";
 import Image from "next/image";
 
-export default function CategoriesSection() {
+interface CategoryItemType {
+  title: string;
+  img: string;
+  link: string;
+}
+
+interface CategoriesSectionProps {
+  data: CategoryItemType[];
+}
+
+export default function CategoriesSection({ data }: CategoriesSectionProps) {
   return (
     <div
       data-elementor-type="wp-page"
@@ -14,48 +24,14 @@ export default function CategoriesSection() {
         data-element_type="section"
       >
         <div className="elementor-container elementor-column-gap-default">
-          
-          {/* 1️⃣ Education */}
-          <CategoryItem
-            link="/"
-            title="Education"
-            img="/images/1694604826510.png"
-          />
-
-          {/* 2️⃣ Health Care */}
-          <CategoryItem
-            link="/"
-            title="Health Care"
-            img="/images/1693812773230.png"
-          />
-
-          {/* 3️⃣ Women Hygiene */}
-          <CategoryItem
-            link="/"
-            title="Women Hygiene"
-            img="/images/1693812998602.png"
-          />
-
-          {/* 4️⃣ Homeless Support */}
-          <CategoryItem
-            link="/"
-            title="Homeless Support"
-            img="/images/1694604918964.png"
-          />
-
-          {/* 5️⃣ Animal Care */}
-          <CategoryItem
-            link="/"
-            title="Animal Care"
-            img="/images/1693813500167.png"
-          />
-
-          {/* 6️⃣ Sponsorship */}
-          <CategoryItem
-            link="/"
-            title="Sponsorship"
-            img="/images/1693813557040.png"
-          />
+          {data.map((item, index) => (
+            <CategoryItem
+              key={index}
+              link={item.link}
+              title={item.title}
+              img={item.img}
+            />
+          ))}
         </div>
       </section>
     </div>
@@ -83,7 +59,6 @@ const CategoryItem = ({ link, title, img }: CategoryProps) => {
             <div className="elementor-icon-box-wrapper">
               <div className="elementor-icon-box-icon">
                 <a href={link} className="elementor-icon elementor-animation-">
-                  {/* Image from external host enabled in next.config.js */}
                   <Image
                     src={img}
                     alt={title}

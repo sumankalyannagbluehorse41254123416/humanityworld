@@ -1,64 +1,72 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
-const VolunteersSection = () => {
+interface Section {
+  id?: number;
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+  image?: string;
+  subsections?: Section[];
+}
+
+// 🔥 Removes ALL HTML tags from backend text
+const stripHtml = (html: string = "") =>
+  html
+    .replace(/<[^>]*>/g, " ")  // remove tags like <p>, <br>, <strong>
+    .replace(/\s+/g, " ")      // remove extra spaces
+    .trim();
+
+export default function VolunteersSection({ section }: { section?: Section }) {
+  const title = section?.title || "OUR VOLUNTEERS";
+
+  // Clean <p> and other tags from shortDescription
+  const shortDescription = stripHtml(
+    section?.shortDescription ||
+      "HWF has a dedicated team of volunteers..."
+  );
+
+  const volunteers = section?.subsections || [];
+
   return (
     <section className="mt">
       <div className="container">
-        <h2 className="text-center mt-2">OUR VOLUNTEERS</h2>
-        <h6 className="details">
-          HWF has a dedicated team of volunteers, compassionate individuals who have willingly stepped forward to contribute to our daily operations. Allow us to introduce you to a handful of these generous souls:
-        </h6>
+        <h2 className="text-center mt-2">{title}</h2>
+
+        {/* Cleaned text */}
+        <h6 className="details">{shortDescription}</h6>
 
         <div className="row">
+          {volunteers.map((vol, index) => (
+            <div
+              key={index}
+              className="col-lg-4 col-md-6 col-sm-12 col-12 pb-4 pb-lg-0"
+            >
+              <div className="card_1">
+                <Image
+                  src={vol.image || "/images/default.jpg"}
+                  alt={vol.title || "Volunteer"}
+                  width={516}
+                  height={250}
+                  className="w-100"
+                  style={{ objectFit: "cover" }}
+                />
 
-          <div className="col-lg-4 col-md-6 col-sm-12 col-12 pb-4 pb-lg-0">
-            <div className="card_1">
-              <img 
-                src="/images/1709013946942.jpg" 
-                alt="Avatar" 
-                style={{ width: "100%" }} 
-              />
-              <div className="container-card">
-                <h4><b>Christina Robbin</b></h4>
-                <p>Director</p>
+                <div className="container-card">
+                  <h4>
+                    <b>{stripHtml(vol.title || "")}</b>
+                  </h4>
+
+                  {/* Cleaned description */}
+                  <p>{stripHtml(vol.description || "")}</p>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 col-sm-12 col-12 pb-4 pb-lg-0">
-            <div className="card_1">
-              <img 
-                src="/images/1709014653687.png" 
-                alt="Avatar" 
-                style={{ width: "100%" }} 
-              />
-              <div className="container-card">
-                <h4><b>Christina Robbin</b></h4>
-                <p>Director</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 col-sm-12 col-12 pb-4 pb-lg-0">
-            <div className="card_1">
-              <img 
-                src="/images/1709014306505.jpg" 
-                alt="Avatar" 
-                style={{ width: "100%" }} 
-              />
-              <div className="container-card">
-                <h4><b>Christina Robbin</b></h4>
-                <p>Director</p>
-              </div>
-            </div>
-          </div>
-
+          ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default VolunteersSection;
+}

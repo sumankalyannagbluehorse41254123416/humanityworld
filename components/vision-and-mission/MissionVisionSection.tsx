@@ -1,43 +1,54 @@
 "use client";
 
-export default function MissionVisionSection() {
+interface Section {
+  id?: number;
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+  image?: string;
+  bannerImage?: string;
+  subsections?: Section[];
+}
+
+// Remove unwanted <p> tags and all HTML
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/g, "")   // remove <p>...</p>
+    .replace(/<[^>]+>/g, "")       // remove all HTML tags
+    .replace(/&nbsp;/g, " ")       // remove &nbsp;
+    .replace(/\s+/g, " ")          // clean extra spaces
+    .trim();
+
+export default function MissionVisionSection({ section }: { section?: Section }) {
+  const mainTitle = cleanText(section?.title || "VISION & MISSION");
+  const subsections = section?.subsections || [];
+
+  const vision = subsections[0] || {};
+  const mission = subsections[1] || {};
+
   return (
     <section id="mission_vission">
       <div className="container">
         <div className="approch_heading">
-          <h2>VISION &amp; MISSION</h2>
+          <h2>{mainTitle}</h2>
         </div>
 
         <div className="row">
+          {/* Vision */}
           <div className="col-lg-6 col-md-12 col-sm-12 col-12 pb-4 pb-lg-0">
             <div className="mv">
-              <h2>HWF's Vision</h2>
+              <h2>{cleanText(vision.title || "HWF's Vision")}</h2>
               <h6></h6>
-              <p>
-                Humanity World Foundation (HWF) is currently focused on extending
-                assistance to a wide range of individuals throughout
-                Maharashtra. Presently, our efforts are concentrated solely
-                within the boundaries of Maharashtra. Nonetheless, our
-                aspiration is to develop the capacity to aid thousands of
-                individuals and their families across the entire expanse of
-                India by the year 2026.
-              </p>
+              <p>{cleanText(vision.description || "")}</p>
             </div>
           </div>
 
+          {/* Mission */}
           <div className="col-lg-6 col-md-12 col-sm-12 col-12 pb-4 pb-lg-0">
             <div className="mv">
-              <h2>HWF's Mission</h2>
+              <h2>{cleanText(mission.title || "HWF's Mission")}</h2>
               <h6></h6>
-              <p>
-                Our central objective is to provide comprehensive support
-                spanning various sectors. This includes Education, Healthcare,
-                Empowerment of Women, Menstrual &amp; Health Awareness
-                initiatives for females residing in rural areas, Animal Shelter
-                and Care programs, Sponsorship for Children, Provision of Food
-                and Water to the Homeless, and Ensuring essential necessities
-                for Children in need.
-              </p>
+              <p>{cleanText(mission.description || "")}</p>
             </div>
           </div>
         </div>

@@ -1,6 +1,11 @@
 "use client";
 
-export default function AchievementsSection() {
+interface AchievementsProps {
+  title: string;
+  shortDescription: string;
+}
+
+export default function AchievementsSection({ data }: { data: AchievementsProps }) {
   return (
     <section
       className="elementor-section elementor-top-section elementor-element elementor-element-9108c4e elementor-section-boxed elementor-section-height-default elementor-section-height-default"
@@ -27,7 +32,7 @@ export default function AchievementsSection() {
                 >
                   <div className="elementor-widget-wrap elementor-element-populated">
 
-                    {/* Heading */}
+                    {/* Dynamic Heading */}
                     <div
                       className="elementor-element elementor-element-1a67491 elementor-widget elementor-widget-heading"
                       data-id="1a67491"
@@ -39,13 +44,13 @@ export default function AchievementsSection() {
                           className="elementor-heading-title elementor-size-default"
                           style={{ textAlign: "center" }}
                         >
-                          Our Achievements
+                          {data?.title}
                         </h3>
-                        <p style={{ textAlign: "center" }}>Milestones of Excellence</p>
+                        <p style={{ textAlign: "center" }}>{data?.shortDescription}</p>
                       </div>
                     </div>
 
-                    {/* View More Button */}
+                    {/* View More Button (NO CHANGE) */}
                     <div
                       className="elementor-element elementor-element-lifeline_events elementor-widget elementor-widget-Events"
                       data-id="lifeline_events"
