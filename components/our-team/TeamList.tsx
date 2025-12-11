@@ -2,64 +2,55 @@
 
 import React from "react";
 
-const TeamList = () => {
+interface Section {
+  id?: number;
+  title?: string;
+  description?: string;
+  image?: string;
+  subsections?: Section[];
+}
+
+// Remove unwanted HTML
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/g, "")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const TeamList = ({ section }: { section?: Section }) => {
+  const members = section?.subsections || [];
+
   return (
     <section id="team_main">
       <div className="container">
         <div className="main_t">
-          <h6> </h6>
+          <h6></h6>
         </div>
 
         <div className="row">
 
-          {/* Single Starts */}
-          <div className="col-lg-4 col-md-6 col-sm-12 col-12">
+          {members.map((member, index) => (
             <div
-              className="team__item set-bg"
-              style={{
-                backgroundImage: "url('https://hwf.tezcommerce.com/images/Shiraz.jpg')",
-              }}
+              key={index}
+              className="col-lg-4 col-md-6 col-sm-12 col-12"
             >
-              <div className="team__text">
-                <div className="team__title">
-                  <h4>Shiraz Ahmad</h4>
-                  <span>Director</span>
+              <div
+                className="team__item set-bg"
+                style={{
+                  backgroundImage: `url(${member.image || "/images/team-transformed.jpg"})`,
+                }}
+              >
+                <div className="team__text">
+                  <div className="team__title">
+                    <h4>{cleanText(member.title || "")}</h4>
+                    <span>{cleanText(member.description || "")}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-            <div
-              className="team__item set-bg"
-              style={{
-                backgroundImage: "url('https://hwf.tezcommerce.com/images/Lawrence.jpg')",
-              }}
-            >
-              <div className="team__text">
-                <div className="team__title">
-                  <h4>Lawrence Castellino</h4>
-                  <span>Director</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 col-sm-12 col-12">
-            <div
-              className="team__item set-bg"
-              style={{
-                backgroundImage: "url('https://hwf.tezcommerce.com/images/Shadab.jpg')",
-              }}
-            >
-              <div className="team__text">
-                <div className="team__title">
-                  <h4>Shadab Ahmad</h4>
-                  <span>Director</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
 
         </div>
       </div>

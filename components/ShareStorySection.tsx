@@ -1,7 +1,13 @@
 "use client";
 import Image from "next/image";
 
-export default function ShareStorySection() {
+interface ShareStoryProps {
+  title: string;
+  shortDescription: string;
+  image?: string;
+}
+
+export default function ShareStorySection({ data }: { data: ShareStoryProps }) {
   return (
     <div
       data-elementor-type="wp-page"
@@ -15,7 +21,7 @@ export default function ShareStorySection() {
       >
         <div className="elementor-container elementor-column-gap-default learn_box">
           
-          {/* Left Image Column */}
+          {/* Left Image Column (DYNAMIC) */}
           <div
             className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-3608bee learn_img_box"
             data-id="3608bee"
@@ -37,17 +43,12 @@ export default function ShareStorySection() {
                       style={{ width: "100%" }}
                     >
                       <div className="gallery-box text-center position-relative mb-30 w-100">
-                        <a
-                          data-fancybox="gallery"
-                          className="d-block position-relative"
-                          href="#"
-                          title="Toys for 6-year-old Babies"
-                        >
+                        <a className="d-block position-relative">
                           <Image
-                            width={200}
-                            height={200}
-                            src="/images/collage.png"
-                            alt="Gallery"
+                            width={400}
+                            height={400}
+                            src={data?.image || "/images/collage.png"}
+                            alt={data.title}
                             className="lif-img"
                           />
                         </a>
@@ -59,7 +60,7 @@ export default function ShareStorySection() {
             </div>
           </div>
 
-          {/* Right Content Column */}
+          {/* Right Content Column (DYNAMIC) */}
           <div
             className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-dcb983d toarea-new"
             data-id="dcb983d"
@@ -73,26 +74,23 @@ export default function ShareStorySection() {
               >
                 <div className="elementor-widget-container">
                   <div className="elementor-icon-box-wrapper">
-                    <div className="elementor-icon-box-icon">
-                      <span className="elementor-icon elementor-animation-"></span>
-                    </div>
-
                     <div className="elementor-icon-box-content">
+                      {/* DYNAMIC h3 */}
                       <h3 className="elementor-icon-box-title">
-                        <span>Share Your Charity Story</span>
+                        <span>{data?.title}</span>
                       </h3>
 
+                      {/* DYNAMIC Paragraph */}
                       <p className="elementor-icon-box-description">
-                        Every Member has a story. What's yours?
+                        {data?.shortDescription}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-
-              {/* (Optional button or more content can stay here) */}
             </div>
           </div>
+
         </div>
       </section>
     </div>

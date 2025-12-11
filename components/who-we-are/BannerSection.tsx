@@ -1,14 +1,16 @@
 "use client";
 
-import React from "react";
+interface BannerProps {
+  bannerImage?: string;
+}
 
-export default function BannerSection() {
+export default function BannerSection({ bannerImage }: BannerProps) {
   return (
     <section>
       <div
         className="all_banner"
         style={{
-          backgroundImage: "url('/images/who_banner.jpeg')",
+          backgroundImage: `url('${bannerImage || "/images/who_banner.jpeg"}')`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           height: "473.6px",

@@ -2,18 +2,17 @@
 
 import React from "react";
 
-const MentorBanner = () => {
+export default function MentorBanner({ image }: { image?: string }) {
+  const bgImage = image || "/images/default-banner.jpg";
+
   return (
     <section>
       <div
         className="all_banner"
         style={{
-          backgroundImage:
-            "url('/images/mentor.jpeg')",
+          backgroundImage: `url('${bgImage}')`,
         }}
       ></div>
     </section>
   );
-};
-
-export default MentorBanner;
+}
