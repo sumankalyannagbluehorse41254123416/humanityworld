@@ -452,6 +452,21 @@ body.menu-active .responsive-wrapper-style2 .res-btn,
     color: #f76a01
 }
 
+.donets_button {
+    background: #f56a01;
+    height: 44px !important;
+    transition: all 500ms ease;
+    color: white !important;
+    padding: 5px 30px !important;
+    border-radius: 50px;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+.inputBox span i {
+    font-size: 16px;
+}
+
 .selectareaP {
     display: flex;
     grid-gap: 15px;
