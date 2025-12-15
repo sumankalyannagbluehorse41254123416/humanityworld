@@ -1,10 +1,18 @@
-export default function BannerAnimal() {
+"use client";
+
+interface BannerAnimalProps {
+  bannerImage?: string;
+}
+
+export default function BannerAnimal({ bannerImage }: BannerAnimalProps) {
   return (
     <section>
       <div
         className="all_banner"
         style={{
-          backgroundImage: `url("/images/animail_care.jpg")`,
+          backgroundImage: bannerImage
+            ? `url(${bannerImage})`
+            : "url('/images/animail_care.jpg')", // fallback
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",

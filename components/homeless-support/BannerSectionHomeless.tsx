@@ -1,10 +1,20 @@
-export default function BannerSectionHomeless() {
+"use client";
+
+interface BannerSectionHomelessProps {
+  bannerImage?: string;
+}
+
+export default function BannerSectionHomeless({
+  bannerImage,
+}: BannerSectionHomelessProps) {
   return (
     <section>
       <div
         className="banner_work"
         style={{
-          backgroundImage: `url(/images/1693486445027.jpg)`,
+          backgroundImage: bannerImage
+            ? `url(${bannerImage})`
+            : "none",
           height: "500px",
           backgroundPosition: "center",
           backgroundSize: "cover",

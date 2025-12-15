@@ -1,13 +1,19 @@
-export default function EducationBanner() {
+"use client";
+interface EducationBannerProps {
+  bannerImage?: string;
+}
+
+export default function EducationBanner({ bannerImage }: EducationBannerProps) {
   return (
     <section>
       <div
         className="all_banner"
         style={{
-          backgroundImage:
-            "url('/images/education_banner.jpg')",
+          backgroundImage: bannerImage
+            ? `url(${bannerImage})`
+            : "url('/images/education_banner.jpg')", // fallback
         }}
-      ></div>
+      />
     </section>
   );
 }

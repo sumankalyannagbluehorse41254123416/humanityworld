@@ -1,14 +1,18 @@
-"use client";
+interface HygieneBannerProps {
+  bannerImage?: string;
+}
 
-export default function HygieneBanner() {
+export default function HygieneBanner({ bannerImage }: HygieneBannerProps) {
   return (
     <section>
       <div
         className="all_banner"
         style={{
-          backgroundImage: "url('/images/hygini.jpg')",
+          backgroundImage: bannerImage
+            ? `url(${bannerImage})`
+            : "url('/images/hygini.jpg')", // fallback
         }}
-      ></div>
+      />
     </section>
   );
 }

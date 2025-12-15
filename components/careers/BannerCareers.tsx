@@ -1,13 +1,18 @@
-export default function BannerCareers() {
+interface BannerCareersProps {
+  bannerImage?: string;
+}
+
+export default function BannerCareers({ bannerImage }: BannerCareersProps) {
   return (
     <section>
       <div
         className="all_banner"
         style={{
-          backgroundImage: "url('/images/career_banner.jpg')",
+          backgroundImage: bannerImage
+            ? `url(${bannerImage})`
+            : "url('/images/career_banner.jpg')", // fallback
         }}
-      >
-      </div>
+      />
     </section>
   );
 }
