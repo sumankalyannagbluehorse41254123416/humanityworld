@@ -4,67 +4,55 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect } from "react";
 import Image from "next/image";
 
-const mentors = [
-  {
-    id: 0,
-    name: "Mentor Name 1",
-    role: "ADVISORS",
-    img: "/images/1692441526400.jpg",
-    linkedin: "#",
-    description:
-      "A visionary leader whose insights have provided us with strategic direction and unwavering support. Their expertise has been instrumental in shaping our mission.",
-  },
-  {
-    id: 1,
-    name: "Mentor Name 2",
-    role: "ADVISORS",
-    img: "/images/1692441574030.jpg",
-    linkedin: "#",
-    description:
-      "A compassionate advocate for change, this mentor has shared their wisdom and experience.",
-  },
-  {
-    id: 2,
-    name: "Mentor Name 3",
-    role: "ADVISORS",
-    img: "/images/1692441647671.jpg",
-    linkedin: "#",
-    description:
-      "A guiding light in our pursuit of making a difference, teaching perseverance and dedication.",
-  },
-  {
-    id: 3,
-    name: "Mentor Name 4",
-    role: "ADVISORS",
-    img: "/images/1692441690544.jpg",
-    linkedin: "#",
-    description:
-      "With a heart dedicated to social impact, this mentor has inspired meaningful collective changes.",
-  },
-  {
-    id: 4,
-    name: "Mentor Name 5",
-    role: "",
-    img: "/images/1692882376082.jpg",
-    linkedin: "#",
-    description:
-      "This mentor's community engagement mindset has fueled our commitment to uplift lives.",
-  },
-];
+// Use the same Section interface as page.tsx
+interface Section {
+  id?: number;
+  title?: string;
+  description?: string;
+  image?: string;
+  // Make sure this matches what you have in page.tsx
+  [key: string]: any; // Or be more specific: [key: string]: string | number | boolean | undefined | Section[];
+}
 
-export default function MentorSection() {
+interface MentorSectionProps {
+  mentors: Section[]; // Change from Subsection[] to Section[]
+  shortDescription: string;
+}
 
+// Array of roles to cycle through
+const roles = ["ADVISORS", "ADVISORS", "ADVISORS", "ADVISORS", ""];
+
+// Helper function to strip HTML tags
+const stripHtml = (html: string = ""): string => {
+  return html
+    .replace(/<[^>]*>/g, "") // Remove HTML tags
+    .replace(/&nbsp;/g, " ") // Replace &nbsp; with space
+    .replace(/\s+/g, " ") // Collapse multiple spaces
+    .trim(); // Trim whitespace
+};
+
+export default function MentorSection({ mentors, shortDescription }: MentorSectionProps) {
   // 👉 Fix Bootstrap JS execution on client only
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
+
+  // Transform subsections to mentor format with dynamic roles
+  const transformedMentors = mentors.map((mentor, index) => ({
+    id: mentor.id || index,
+    name: stripHtml(mentor.title?.toString()) || `Mentor ${index + 1}`,
+    role: roles[index % roles.length],
+    img: mentor.image?.toString() || "/images/default-mentor.jpg",
+    linkedin: "#",
+    description: stripHtml(mentor.description?.toString()) || "No description available.",
+  }));
 
   return (
     <section className="team_box">
       <div className="container">
         <div className="team_inner">
           <div className="row">
-            {mentors.map((mentor) => (
+            {transformedMentors.map((mentor) => (
               <React.Fragment key={mentor.id}>
                 {/* Card */}
                 <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
@@ -82,7 +70,7 @@ export default function MentorSection() {
                       className="img-fluid"
                     />
                     <div className="team_con">
-                      <a className="team_title">{mentor.name}</a>
+                      <span className="team_title">{mentor.name}</span>
                       <span>{mentor.role}</span>
                     </div>
                     <ul>
@@ -134,7 +122,7 @@ export default function MentorSection() {
                           <span>{mentor.role}</span>
                           <ul>
                             <li>
-                              <a href={mentor.linkedin} target="_blank">
+                              <a href={mentor.linkedin} target="_blank" rel="noopener noreferrer">
                                 <i className="ri-linkedin-fill"></i>
                               </a>
                             </li>
@@ -156,11 +144,7 @@ export default function MentorSection() {
         </div>
 
         <p className="mt-5 mentors_text">
-          These mentors, among others, have been instrumental in shaping HWF's
-          path, and their influence continues to drive our mission forward. We
-          express our heartfelt gratitude for their unwavering support and
-          guidance, which has enabled us to touch lives and bring about
-          meaningful change.
+          {stripHtml(shortDescription) || "These mentors, among others, have been instrumental in shaping HWF's path, and their influence continues to drive our mission forward. We express our heartfelt gratitude for their unwavering support and guidance, which has enabled us to touch lives and bring about meaningful change."}
         </p>
       </div>
     </section>

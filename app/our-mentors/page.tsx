@@ -53,7 +53,7 @@ export default async function OurMentors() {
   // ✅ Dynamic sections
   const bannerSection = sections[21] || {};
   const headingSection = sections[22] || {};
-  //   const mentorListSection = sections[23] || {};
+  const mentorListSection = sections[23] || {}; // Get section at index 23
 
   return (
     <>
@@ -64,7 +64,11 @@ export default async function OurMentors() {
         shortDescription={stripHtml(headingSection.shortDescription || "")}
       />
 
-      <MentorSection />
+      {/* Pass mentor section data dynamically */}
+      <MentorSection 
+        mentors={mentorListSection.subsections || []}
+        shortDescription={stripHtml(mentorListSection.shortDescription || "")}
+      />
     </>
   );
 }
