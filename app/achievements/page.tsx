@@ -1,11 +1,55 @@
 import AchievementsSection from "@/components/achievements/AchievementsSection.";
 import BannerWorkAchivments from "@/components/achievements/BannerWorkAchivments";
+import { headers } from "next/headers";
+import { fetchPageData } from "@/services/fetchData.service";
 
-export default function achievements() {
+/* ---------------- Types ---------------- */
+interface Section {
+  id?: number;
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+  image?: string;
+  bannerImage?: string;
+  subsections?: Section[];
+}
+
+interface SiteData {
+  pageItemdataWithSubsection?: Section[];
+  data?: {
+    pageItemdataWithSubsection?: Section[];
+  };
+}
+
+export default async function achievements() {
+  const rqHeaders = await headers();
+  const host = rqHeaders.get("host") || "localhost:3000";
+  const headersObj = Object.fromEntries(rqHeaders.entries());
+
+  let siteData: SiteData = {};
+
+  try {
+    siteData = await fetchPageData(
+      { host, ...headersObj },
+      "2b2d22d6-3f2c-4708-91e1-927dc37c6a1f"
+    );
+  } catch (error) {
+    console.error("Fetch Error (AchievementsPage):", error);
+  }
+
+  /* ---------------- Resolve sections safely ---------------- */
+  const sections: Section[] =
+    siteData.pageItemdataWithSubsection ??
+    siteData.data?.pageItemdataWithSubsection ??
+    [];
+
+  /* ---------------- Banner image from index 39 ---------------- */
+  const bannerImage = sections?.[39]?.image;
+
   return (
     <>
-      <BannerWorkAchivments/>
-      <AchievementsSection/>
+      <BannerWorkAchivments image={bannerImage} />
+     <AchievementsSection sections={sections} />
     </>
   );
 }
