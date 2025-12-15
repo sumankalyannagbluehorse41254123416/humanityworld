@@ -1,68 +1,118 @@
-export default function AchievementsSection() {
+"use client";
+
+import Image from "next/image";
+
+/* ---------------- Types ---------------- */
+interface SubSection {
+  id?: number;
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+interface Section {
+  id?: number;
+  title?: string;
+  shortDescription?: string;
+  image?: string;
+  subsections?: SubSection[];
+}
+
+interface AchievementsSectionProps {
+  sections: Section[];
+}
+
+/* ---------------- Helpers ---------------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;|&#160;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+export default function AchievementsSection({
+  sections,
+}: AchievementsSectionProps) {
+  const section = sections?.[40];
+
+  if (!section) return null;
+
+  const sub0 = section.subsections?.[0];
+  const sub1 = section.subsections?.[1];
+
   return (
     <section id="achivement" className="achivement_text">
       <div className="container">
-        <h1 className="text-center mb-4">ACHIEVEMENTS</h1>
 
+        {/* Main Heading */}
+        {sub1?.title && (
+          <h1 className="text-center mb-4">
+            {cleanText(sub1.title)}
+          </h1>
+        )}
+
+        {/* ========== IMPACT SECTION ========== */}
         <div className="row">
           <div className="col-lg-6 col-md-12 col-sm-12 col-12 impct_per">
             <div className="work_heading education_mt">
-              <h2>Impact</h2>
+              <h2>{cleanText(section.title)}</h2>
             </div>
-            <p>
-              HWF's influence on the lives of those it has reached has been remarkable. 
-              Regardless of the nature of the need, our organization has consistently provided its utmost 
-              and offered assistance whenever feasible. Even with the challenges posed by limited resources 
-              and funding, HWF's efforts have resonated deeply, touching hearts and leaving a lasting positive impact.
-            </p>
+
+            {section.shortDescription && (
+              <p>{cleanText(section.shortDescription)}</p>
+            )}
           </div>
 
           <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-            <div className="impact_img">
-              <img
-                src="/images/1692611879823.jpg"
-                alt="impact_img"
-              />
-            </div>
+            {section.image && (
+              <div className="impact_img">
+                <Image
+                  src={section.image}
+                  alt={cleanText(section.title) || "Impact"}
+                  width={600}
+                  height={400}
+                  // style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
 
       {/* ========== INNOVATIONS SECTION ========== */}
-
       <section id="middle_sect">
         <div className="container">
           <div className="row">
 
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-              <div className="inovation_img">
-                <img
-                  src="/images/1692611879823.jpg"
-                  alt="Innovation"
-                />
-              </div>
+              {sub0?.image && (
+                <div className="inovation_img">
+                  <Image
+                    src={sub0.image}
+                    alt={cleanText(sub0.title) || "Innovation"}
+                    width={600}
+                    height={400}
+                    // style={{ width: "100%", height: "auto" }}
+                  />
+                </div>
+              )}
             </div>
 
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
-              <div className="heding education_mt">
-                <h2>Innovations</h2>
-              </div>
+              {sub0?.title && (
+                <div className="heding education_mt">
+                  <h2>{cleanText(sub0.title)}</h2>
+                </div>
+              )}
 
               <div className="inovate_text">
-                <p>
-                  The vision we hold is truly ambitious and transformative. The plan to broaden our scope and 
-                  address the needs of communities across Maharashtra in the near future is a testament to our 
-                  unwavering dedication. By setting our sights on extending our reach to encompass all of India 
-                  by 2026, HWF is demonstrating a profound commitment to making a significant and far-reaching difference.
-                </p>
+                {sub0?.description && (
+                  <p>{cleanText(sub0.description)}</p>
+                )}
 
-                <p>
-                  Through our actions and aspirations, HWF shines as a beacon of compassion, empathy, and hope. 
-                  As we continue on our path of expanding and enhancing our efforts, may our determination inspire 
-                  others and pave the way for a brighter, more equitable future for all. Our work and initiatives 
-                  serve as an inspiration to us all, and the lives we've touched stand as a testament to the 
-                  positive change we're trying to bring to the world.
-                </p>
+                {sub1?.description && (
+                  <p>{cleanText(sub1.description)}</p>
+                )}
               </div>
             </div>
 

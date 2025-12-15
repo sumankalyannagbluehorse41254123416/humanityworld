@@ -1,18 +1,26 @@
 "use client";
 
-export default function BannerWorkAchivments() {
+interface BannerWorkAchivmentsProps {
+  image?: string;
+}
+
+export default function BannerWorkAchivments({
+  image,
+}: BannerWorkAchivmentsProps) {
+  if (!image) return null;
+
   return (
     <section>
       <div
         className="banner_work"
         style={{
-          backgroundImage:
-            "url('/images/1693488275639.jpg')",
+          backgroundImage: `url(${image})`,
           height: "500px",
           backgroundPosition: "center",
           backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
         }}
-      ></div>
+      />
     </section>
   );
 }

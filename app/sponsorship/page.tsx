@@ -1,10 +1,55 @@
 import BannerWork from "@/components/sponsorship/BannerWork";
 import SponsorshipSection from "@/components/sponsorship/SponsorshipSection";
-export default function Sponsorship() {
+import { headers } from "next/headers";
+import { fetchPageData } from "@/services/fetchData.service";
+
+/* ---------------- Types ---------------- */
+interface Section {
+  id?: number;
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+  image?: string;
+  bannerImage?: string;
+  subsections?: Section[];
+}
+
+interface SiteData {
+  pageItemdataWithSubsection?: Section[];
+  data?: {
+    pageItemdataWithSubsection?: Section[];
+  };
+}
+
+export default async function Sponsorship() {
+  const rqHeaders = await headers();
+  const host = rqHeaders.get("host") || "localhost:3000";
+  const headersObj = Object.fromEntries(rqHeaders.entries());
+
+  let siteData: SiteData = {};
+
+  try {
+    siteData = await fetchPageData(
+      { host, ...headersObj },
+      "2b2d22d6-3f2c-4708-91e1-927dc37c6a1f"
+    );
+  } catch (error) {
+    console.error("Fetch Error (SponsorshipPage):", error);
+  }
+
+  /* ---------------- Resolve sections safely ---------------- */
+  const sections: Section[] =
+    siteData.pageItemdataWithSubsection ??
+    siteData.data?.pageItemdataWithSubsection ??
+    [];
+
+  /* ---------------- Banner image (index 37) ---------------- */
+  const bannerImage = sections?.[37]?.bannerImage;
+
   return (
     <>
-      <BannerWork />
-      <SponsorshipSection/>
+      <BannerWork bannerImage={bannerImage} />
+      <SponsorshipSection sections={sections} />
     </>
   );
 }
