@@ -2,23 +2,43 @@
 
 import React from "react";
 
-export default function IntellectualProperty() {
+interface Props {
+  data?: {
+    title?: string;
+    shortDescription?: string;
+  };
+}
+
+// Clean unwanted <p>, &nbsp; from CMS
+const cleanText = (text: string = "") =>
+  text
+    .replace(/<p>(\s|&nbsp;)*<\/p>/gi, "")
+    .replace(/<\/?p[^>]*>/gi, "")
+    .replace(/&nbsp;/gi, " ")
+    .trim();
+
+export default function IntellectualProperty({ data }: Props) {
+  if (!data) return null;
+
   return (
     <section id="prop">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Intellectual Property</h2>
-            </div>
 
-            <div className="proparty_content">
-              <p>
-                All content, including text, images, graphics, logos, and other materials on our Website,
-                are protected by copyright and intellectual property laws. You may not reproduce, distribute,
-                modify, or create derivative works based on our content without our explicit permission.
-              </p>
-            </div>
+            {/* Section Title */}
+            {data?.title && (
+              <div className="all_heading_t">
+                <h2>{cleanText(data.title)}</h2>
+              </div>
+            )}
+
+            {/* Section Description */}
+            {data?.shortDescription && (
+              <div className="proparty_content">
+                <p>{cleanText(data.shortDescription)}</p>
+              </div>
+            )}
 
           </div>
         </div>

@@ -1,43 +1,52 @@
-export default function WebsiteInteraction() {
+"use client";
+
+interface SubSection {
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+}
+
+interface WebsiteInteractionProps {
+  title?: string;
+  shortDescription?: string;
+  subsections?: SubSection[];
+}
+
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/g, "")
+    .replace(/<[^>]+>/g, "")
+    .trim();
+
+export default function WebsiteInteraction({
+  title,
+  shortDescription,
+  subsections = [],
+}: WebsiteInteractionProps) {
   return (
     <section id="web_intro">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-
             <div className="all_heading_t">
-              <h2>Use of Website Interaction</h2>
+              <h2>{title}</h2>
             </div>
 
             <div className="list_a">
               <ul>
-                <li>
-                  You can explore most sections of this Website without needing to register your information with us.
-                  However, specific sections are accessible only after registration. When you provide personal
-                  information while using our Website, we will handle it in accordance with our privacy policy.
-                  b. By accessing any segment of this Website, you are assumed to have completely accepted both these
-                  terms of use and our privacy policy. If you do not fully agree with these, please exit the Website
-                  immediately.
-                </li>
+                {shortDescription && (
+                  <li>{cleanText(shortDescription)}</li>
+                )}
 
-                <li>
-                  By accessing any segment of this Website, you are assumed to have completely accepted both these
-                  terms of use and our privacy policy. If you do not fully agree with these, please exit the Website
-                  immediately.
-                </li>
+                {subsections?.[0]?.description && (
+                  <li>{cleanText(subsections[0].description)}</li>
+                )}
 
-                <li>
-                  We retain the right to enhance, modify, or discontinue information and services on our Website, or
-                  even terminate the Website, without prior notice. We also hold the authority to adjust these terms of
-                  use and our privacy policy without prior notice. Such adjustments become effective immediately after we
-                  post the updated terms of use and/or privacy policy on our Website. Your continued use of our Website
-                  signifies your acceptance of these modified terms of use and/or privacy policy. Therefore, it's
-                  advisable to periodically review this page to stay informed about all enhancements, changes, and
-                  adjustments made.
-                </li>
+                {subsections?.[1]?.description && (
+                  <li>{cleanText(subsections[1].description)}</li>
+                )}
               </ul>
             </div>
-
           </div>
         </div>
       </div>

@@ -1,11 +1,17 @@
 "use client";
 
-export default function BannerTermsConditions() {
+interface BannerTermsConditionsProps {
+  image?: string;
+}
+
+export default function BannerTermsConditions({
+  image,
+}: BannerTermsConditionsProps) {
   return (
     <div
       className="main_banner_top"
       style={{
-        backgroundImage: "url('/images/polic1.jpg')",
+        backgroundImage: `url(${image || "/images/polic1.jpg"})`,
         height: "550px",
         backgroundSize: "cover",
         backgroundPosition: "center",

@@ -2,36 +2,54 @@
 
 import React from "react";
 
-export default function IndemnificationSection() {
+interface CMSSection {
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+  subsections?: CMSSection[];
+}
+
+// Remove CMS unwanted tags
+const cleanText = (text: string = "") =>
+  text
+    .replace(/<p>(\s|&nbsp;)*<\/p>/gi, "")
+    .replace(/<\/?(p|ul|li)[^>]*>/gi, "")
+    .replace(/&nbsp;/gi, " ")
+    .trim();
+
+export default function IndemnificationSection({ data }: { data?: CMSSection }) {
+  if (!data) return null;
+
   return (
     <section id="indimenificution">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Indemnification</h2>
-            </div>
+
+            {data.title && (
+              <div className="all_heading_t">
+                <h2>{cleanText(data.title)}</h2>
+              </div>
+            )}
 
             <div className="menificition_content limitation_content">
               <ul>
-                <li>
-                  You agree to indemnify and hold Humanity World Foundation and its affiliates, officers, employees,
-                  volunteers, partners, and agents harmless from and against any claims, liabilities, damages, losses,
-                  and expenses, including reasonable attorneys' fees and costs, arising out of or in any way connected
-                  with:
-                </li>
+                {data.shortDescription && (
+                  <li>{cleanText(data.shortDescription)}</li>
+                )}
 
-                <ul className="nest_list">
-                  <li>Your use of our Website or services.</li>
-                  <li>Your violation of these Terms or any applicable laws.</li>
-                  <li>Your violation of any rights of another person or entity.</li>
-                  <li>Any content you post, share, or submit through our Website or services.</li>
-                  <li>
-                    Any unauthorized access to or use of our Website or services by you or anyone using your account.
-                  </li>
-                </ul>
+                {data.subsections?.length ? (
+                  <ul className="nest_list">
+                    {data.subsections.map((item, index) => (
+                      <li key={index}>
+                        {cleanText(item.description)}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </ul>
             </div>
+
           </div>
         </div>
       </div>

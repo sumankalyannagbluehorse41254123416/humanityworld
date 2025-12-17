@@ -1,17 +1,23 @@
 "use client";
 
-import Image from "next/image";
+import React from "react";
 
-export default function BannerAd() {
+interface Props {
+  image?: string;
+}
+
+export default function BannerAd({ image }: Props) {
+  if (!image) return null;
+
   return (
     <div
       className="main_banner_top"
       style={{
-        backgroundImage: "url(/images/policy3.jpeg)",
+        backgroundImage: `url(${image})`,
         height: "550px",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-    ></div>
+    />
   );
 }
