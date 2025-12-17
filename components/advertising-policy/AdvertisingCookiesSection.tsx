@@ -1,40 +1,49 @@
 "use client";
 
-export default function AdvertisingCookiesSection() {
+import type { CMSSection } from "../../types/cms";
+
+/* Clean CMS HTML */
+const cleanText = (html = "") =>
+  html
+    .replace(/<p>(\s|&nbsp;)*<\/p>/gi, "")
+    .replace(/<\/?(p|ul|li)[^>]*>/gi, "")
+    .replace(/&nbsp;/gi, " ")
+    .trim();
+
+export default function AdvertisingCookiesSection({
+  data,
+}: {
+  data?: CMSSection;
+}) {
+  if (!data) return null;
+
   return (
     <section id="web_intro">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Our Advertising Cookies</h2>
-            </div>
 
-            <div className="list_a">
-              <ul>
-                <li>
-                  To help our partners manage their advertising and websites,
-                  we offer many products, including AdSense, AdWords, Humanity World
-                  Foundation Analytics, and a range of DoubleClick-branded services.
-                  When you visit a page or see an ad that uses one of these services,
-                  on Humanity World Foundation various cookies may be sent to your browser.
-                </li>
+            {/* h2 → section.title */}
+            {data.title && (
+              <div className="all_heading_t">
+                <h2>{cleanText(data.title)}</h2>
+              </div>
+            )}
 
-                <li>
-                  To help our partners manage their advertising and websites, we offer many
-                  products, including AdSense, AdWords, Humanity World Foundation Analytics,
-                  and a range of DoubleClick-branded services. When you visit a page or see
-                  an ad that uses one of these services, on Humanity World Foundation various
-                  cookies may be sent to your browser.
-                </li>
-
-                <li>
-                  See more detail about the types of cookies used by Humanity World Foundation
-                  and our partners and how we use them. You can also manage cookies in your web
-                  browser.
-                </li>
-              </ul>
-            </div>
+            {/* li → subsection.description */}
+            {data.subsections && data.subsections.length > 0 && (
+              <div className="list_a">
+                <ul>
+                  {data.subsections.map((item, index) =>
+                    item.description ? (
+                      <li key={index}>
+                        {cleanText(item.description)}
+                      </li>
+                    ) : null
+                  )}
+                </ul>
+              </div>
+            )}
 
           </div>
         </div>

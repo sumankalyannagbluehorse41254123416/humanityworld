@@ -2,31 +2,47 @@
 
 import React from "react";
 
-export default function FundraisingDonorPolicy() {
+interface SubSection {
+  title?: string;
+  description?: string;
+}
+
+interface Props {
+  data: {
+    title?: string;
+    subsections?: SubSection[];
+  };
+}
+
+const cleanText = (text: string = "") =>
+  text
+    .replace(/<p>(\s|&nbsp;)*<\/p>/gi, "")
+    .replace(/<\/?p[^>]*>/gi, "")
+    .replace(/&nbsp;/gi, " ")
+    .trim();
+
+export default function FundraisingDonorPolicy({ data }: Props) {
   return (
     <section id="donor">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Fundraising and Donor Privacy Policies</h2>
-            </div>
+
+            {/* Section Title */}
+            {data?.title && (
+              <div className="all_heading_t">
+                <h2>{cleanText(data.title)}</h2>
+              </div>
+            )}
 
             <div className="donor_content list_a">
               <ul className="data_list">
-                <li>Fundraising:</li>
-                <p>
-                  We may engage in fundraising activities to support our mission. All funds raised will be used in
-                  accordance with our stated goals and projects. We may organize events, campaigns, and other
-                  fundraising initiatives to further our cause.
-                </p>
-
-                <li>Donor Privacy:</li>
-                <p>
-                  We are committed to protecting the privacy of our donors. Any personal information provided during
-                  the donation process will be kept confidential. We do not sell, trade, or share donor information
-                  with third parties unless required by law.
-                </p>
+                {data?.subsections?.map((item, index) => (
+                  <li key={index}>
+                    <strong>{cleanText(item.title)}</strong>
+                    <p>{cleanText(item.description)}</p>
+                  </li>
+                ))}
               </ul>
             </div>
 

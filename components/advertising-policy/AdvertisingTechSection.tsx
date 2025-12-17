@@ -1,23 +1,47 @@
-export default function AdvertisingTechSection() {
+"use client";
+
+import React from "react";
+
+/* ---------------- Types ---------------- */
+interface CMSSection {
+  title?: string;
+  shortDescription?: string;
+}
+
+/* Clean CMS unwanted HTML */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<p>(\s|&nbsp;)*<\/p>/gi, "")
+    .replace(/<\/?p[^>]*>/gi, "")
+    .replace(/&nbsp;/gi, " ")
+    .trim();
+
+interface Props {
+  data?: CMSSection;
+}
+
+export default function AdvertisingTechSection({ data }: Props) {
+  if (!data) return null;
+
   return (
     <section id="copy_right">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Other Technologies used in Advertising</h2>
-            </div>
 
-            <div className="copy_pera">
-              <p>
-                Humanity World Foundation’s advertising systems may use other technologies,
-                including Flash and HTML5, for functions like display of interactive ad
-                formats. We may use the IP address, for example, to identify your general
-                location. We may also select advertising based on information about your
-                computer or device, such as your device model, browser type, or sensors
-                in your device like the accelerometer.
-              </p>
-            </div>
+            {/* h2 → section.title */}
+            {data.title && (
+              <div className="all_heading_t">
+                <h2>{cleanText(data.title)}</h2>
+              </div>
+            )}
+
+            {/* p → section.shortDescription */}
+            {data.shortDescription && (
+              <div className="copy_pera">
+                <p>{cleanText(data.shortDescription)}</p>
+              </div>
+            )}
 
           </div>
         </div>

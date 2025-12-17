@@ -2,29 +2,46 @@
 
 import React from "react";
 
-export default function EnterAgreementSection() {
+interface CMSSection {
+  title?: string;
+  shortDescription?: string;
+}
+
+// Clean CMS unwanted tags
+const cleanText = (text: string = "") =>
+  text
+    .replace(/<p>(\s|&nbsp;)*<\/p>/gi, "")
+    .replace(/<\/?p[^>]*>/gi, "")
+    .replace(/&nbsp;/gi, " ")
+    .trim();
+
+export default function EnterAgreementSection({
+  data,
+}: {
+  data?: CMSSection;
+}) {
+  if (!data) return null;
+
   return (
     <section id="aggre">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Enter Agreement</h2>
-            </div>
 
-            <div className="agere_ment_content">
-              <p>
-                The Terms and any documents expressly referred to in them
-                represent the entire agreement between You and us in relation
-                to the subject matter of the Terms and supersede any prior
-                agreement, understanding or arrangement between You and us,
-                whether oral or in writing. Both You and we acknowledge that, in
-                entering into these Terms, neither You nor we have relied on any
-                representation, undertaking or promise given by the other or
-                implied from anything said or written between You and us prior
-                to such Terms, except as expressly stated in the Terms.
-              </p>
-            </div>
+            {/* Section Title */}
+            {data.title && (
+              <div className="all_heading_t">
+                <h2>{cleanText(data.title)}</h2>
+              </div>
+            )}
+
+            {/* Section Description */}
+            {data.shortDescription && (
+              <div className="agere_ment_content">
+                <p>{cleanText(data.shortDescription)}</p>
+              </div>
+            )}
+
           </div>
         </div>
       </div>
