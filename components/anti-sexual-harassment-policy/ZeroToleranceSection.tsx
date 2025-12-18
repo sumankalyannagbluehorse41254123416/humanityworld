@@ -1,23 +1,37 @@
 "use client";
 
-import React from "react";
+interface Section {
+  title?: string;
+  shortDescription?: string;
+}
 
-export default function ZeroToleranceSection() {
+interface Props {
+  data?: Section;
+}
+
+/* ---- helper to remove unwanted HTML ---- */
+const stripHtml = (html?: string) =>
+  html ? html.replace(/<[^>]*>/g, "").trim() : "";
+
+export default function ZeroToleranceSection({ data }: Props) {
+  if (!data) return null;
+
   return (
     <section id="copy_right">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
+
+            {/* Section Title */}
             <div className="all_heading_t">
-              <h2>Zero Tolerance</h2>
+              <h2>{stripHtml(data.title)}</h2>
             </div>
+
+            {/* Description */}
             <div className="copy_pera">
-              <p>
-                HWF has a zero-tolerance policy for sexual harassment. Any form of sexual
-                harassment will not be tolerated, and appropriate action will be taken
-                promptly against offenders.
-              </p>
+              <p>{stripHtml(data.shortDescription)}</p>
             </div>
+
           </div>
         </div>
       </div>

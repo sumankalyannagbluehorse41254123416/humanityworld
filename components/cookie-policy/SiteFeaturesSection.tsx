@@ -1,40 +1,55 @@
-export default function SiteFeaturesSection() {
+"use client";
+
+import React from "react";
+
+/* -------- Types -------- */
+interface SubSection {
+  description?: string;
+}
+
+interface SectionData {
+  title?: string;
+  subsections?: SubSection[];
+}
+
+interface SiteFeaturesSectionProps {
+  data?: SectionData; // section[82]
+}
+
+/* -------- Helper to clean HTML -------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/gi, "") // remove <p> tags
+    .replace(/<br\s*\/?>/gi, " ") // remove <br>
+    .replace(/<[^>]+>/g, "") // remove all HTML
+    .replace(/\s+/g, " ")
+    .trim();
+
+export default function SiteFeaturesSection({
+  data,
+}: SiteFeaturesSectionProps) {
+  if (!data) return null;
+
   return (
     <section id="copy_right">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Site Features and Services</h2>
-            </div>
+            {/* Section title */}
+            {data.title && (
+              <div className="all_heading_t">
+                <h2>{cleanText(data.title)}</h2>
+              </div>
+            )}
 
+            {/* Subsection descriptions */}
             <div className="copy_pera">
-              <p>
-                We use cookies to enable the functionality that helps us provide
-                the Humanity World Foundation Services.
-              </p>
-
-              <p>
-                For example, Cookies help us store preferences, know when you've
-                seen or interacted with Humanity World Foundation Services'
-                content and, provide you with customized content and
-                experiences. For instance, cookies allow us to make suggestions
-                to you and others, and to customize content on third-party sites
-                that integrate our social plugins. If you are a page
-                administrator, cookies allow you to switch between posting from
-                your personal Humanity World Foundation account and the Page.
-              </p>
-
-              <p>
-                We also use cookies to help provide you with content relevant to
-                your locale.
-              </p>
-
-              <p>
-                For example, we store information in a cookie that is placed on
-                your browser or device so that you will see the site in your
-                preferred language.
-              </p>
+              {data.subsections?.map(
+                (item, index) =>
+                  item.description && (
+                    <p key={index}>{cleanText(item.description)}</p>
+                  )
+              )}
             </div>
           </div>
         </div>

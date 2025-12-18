@@ -1,45 +1,58 @@
 "use client";
 
-export default function SecurityIntegritySection() {
+import React from "react";
+
+/* -------- Types -------- */
+interface SubSection {
+  description?: string;
+}
+
+interface SectionData {
+  title?: string;
+  subsections?: SubSection[];
+}
+
+interface SecurityIntegritySectionProps {
+  data?: SectionData; // section[80]
+}
+
+/* -------- Helper to clean HTML -------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/gi, "") // remove <p> tags
+    .replace(/<br\s*\/?>/gi, " ") // remove <br>
+    .replace(/<[^>]+>/g, "") // remove all HTML
+    .replace(/\s+/g, " ")
+    .trim();
+
+export default function SecurityIntegritySection({
+  data,
+}: SecurityIntegritySectionProps) {
+  if (!data) return null;
+
   return (
     <section id="web_intro">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Security,sites, and service integrity</h2>
-            </div>
+            {/* Section title */}
+            {data.title && (
+              <div className="all_heading_t">
+                <h2>{cleanText(data.title)}</h2>
+              </div>
+            )}
+
+            {/* Subsection list */}
             <div className="list_a">
               <ul>
-                <li>
-                  We use cookies to help us keep your account, data, and the Humanity World
-                  Foundation Services safe and secure.
-                </li>
-
-                <li>
-                  For example, Cookies can help us identify and impose additional security
-                  measures when someone may be attempting to access a Humanity World
-                  Foundation account without authorization, for instance, by rapidly guessing
-                  different passwords. We also use cookies to store information that allows
-                  us to recover your account in the event that you forget your password or to
-                  require additional authentication if you tell us that your account has been
-                  hacked.
-                </li>
-
-                <li>
-                  We also use cookies to combat activity that violates our policies or
-                  otherwise degrades our ability to provide the Humanity World Foundation
-                  Services.
-                </li>
-
-                <li>
-                  For example, Cookies help us fight spam and phishing attacks by enabling us
-                  to identify computers that are used to create large numbers of fake
-                  Humanity World Foundation accounts. We also use cookies to detect computers
-                  infected with malware and to take steps to prevent them from causing further
-                  harm. Cookies also help us prevent underage people from registering for
-                  Humanity World Foundation accounts.
-                </li>
+                {data.subsections?.map(
+                  (item, index) =>
+                    item.description && (
+                      <li key={index}>
+                        {cleanText(item.description)}
+                      </li>
+                    )
+                )}
               </ul>
             </div>
           </div>

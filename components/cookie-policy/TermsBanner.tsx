@@ -1,15 +1,28 @@
 "use client";
 
-export default function TermsBanner() {
+import React from "react";
+
+/* -------- Types -------- */
+interface TermsBannerData {
+  bannerImage?: string;
+}
+
+interface TermsBannerProps {
+  data?: TermsBannerData; // section[76]
+}
+
+export default function TermsBanner({ data }: TermsBannerProps) {
+  if (!data?.bannerImage) return null;
+
   return (
     <div
       className="main_banner_top"
       style={{
-        backgroundImage: "url(/images/terms_banner.jpg)",
+        backgroundImage: `url(${data.bannerImage})`,
         height: "550px",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-    ></div>
+    />
   );
 }
