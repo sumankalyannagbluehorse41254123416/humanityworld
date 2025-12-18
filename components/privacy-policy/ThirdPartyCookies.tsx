@@ -1,20 +1,39 @@
 "use client";
-export default function ThirdPartyCookies() {
+
+/* ---------------- Helper to clean HTML ---------------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<[^>]*>/g, "") // remove all HTML tags
+    .replace(/\s+/g, " ")
+    .trim();
+
+/* ---------------- Types ---------------- */
+interface Section {
+  title?: string;
+  shortDescription?: string;
+}
+
+interface ThirdPartyCookiesProps {
+  section: Section | null;
+}
+
+export default function ThirdPartyCookies({ section }: ThirdPartyCookiesProps) {
+  const title = cleanText(section?.title || "Third-Party Cookies");
+  const description = cleanText(section?.shortDescription || "");
+
   return (
     <section id="prop">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
+            {/* Heading */}
             <div className="all_heading_t">
-              <h2>Third-Party Cookies</h2>
+              <h2>{title}</h2>
             </div>
+
+            {/* Content */}
             <div className="proparty_content">
-              <p>
-                Some cookies on our website may be placed by third parties, such as analytics
-                providers or advertisers. We do not have control over these cookies. Please review
-                the respective third parties' privacy and cookie policies for more information about
-                how they collect and process your information.
-              </p>
+              {description && <p>{description}</p>}
             </div>
           </div>
         </div>

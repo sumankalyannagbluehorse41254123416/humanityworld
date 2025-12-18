@@ -1,19 +1,39 @@
-export default function CookieChoices() {
+"use client";
+
+/* ---------------- Helper to remove unwanted HTML ---------------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<[^>]*>/g, "") // remove all HTML tags
+    .replace(/\s+/g, " ")
+    .trim();
+
+/* ---------------- Types ---------------- */
+interface Section {
+  title?: string;
+  shortDescription?: string;
+}
+
+interface CookieChoicesProps {
+  section: Section | null;
+}
+
+export default function CookieChoices({ section }: CookieChoicesProps) {
+  const title = cleanText(section?.title || "Your Cookie Choices");
+  const description = cleanText(section?.shortDescription || "");
+
   return (
     <section id="prop">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
+            {/* Heading */}
             <div className="all_heading_t">
-              <h2>Your Cookie Choices</h2>
+              <h2>{title}</h2>
             </div>
+
+            {/* Content */}
             <div className="proparty_content">
-              <p>
-                You have the option to accept or decline cookies. Most web browsers automatically
-                accept cookies, but you can usually modify your browser settings to decline cookies
-                if you prefer. However, please note that disabling cookies may impact your experience
-                on our website and may limit certain features and functionalities.
-              </p>
+              {description && <p>{description}</p>}
             </div>
           </div>
         </div>
