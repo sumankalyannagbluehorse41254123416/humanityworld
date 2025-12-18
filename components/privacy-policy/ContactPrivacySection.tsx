@@ -1,23 +1,46 @@
 "use client";
-export default function ContactPrivacySection() {
+
+/* ---------------- Helper ---------------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/g, "") // remove <p> tags
+    .replace(/\s+/g, " ")
+    .trim();
+
+interface SubSection {
+  description?: string;
+}
+
+interface Section {
+  title?: string;
+  subsections?: SubSection[];
+}
+
+interface ContactPrivacySectionProps {
+  section: Section | null;
+}
+
+export default function ContactPrivacySection({
+  section,
+}: ContactPrivacySectionProps) {
+  const title = section?.title || "Contact Us";
+
   return (
     <section id="LINKS">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
             <div className="all_heading_t">
-              <h2>Contact Us</h2>
+              {/* ✅ Dynamic H2 */}
+              <h2>{title}</h2>
             </div>
+
             <div className="proparty_content">
-              <p>
-                If you have any questions or concerns about the Privacy Policy or our data
-                practices, please contact us at: ________________.
-              </p>
-              <p>We are committed to addressing your inquiries and concerns promptly.</p>
-              <p>
-                By using our website, you consent to the practices described in this Privacy
-                Policy. Please review this policy regularly for any updates or changes.
-              </p>
+              {/* ✅ Dynamic paragraphs from subsections */}
+              {section?.subsections?.map((sub, index) => {
+                const text = cleanText(sub?.description);
+                return text ? <p key={index}>{text}</p> : null;
+              })}
             </div>
           </div>
         </div>

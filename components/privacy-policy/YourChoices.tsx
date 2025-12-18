@@ -1,31 +1,60 @@
 "use client";
-export default function YourChoices() {
+
+/* ---------------- Helper: remove ALL HTML tags ---------------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<[^>]*>/g, "") // remove all HTML tags (p, strong, etc.)
+    .replace(/\s+/g, " ")
+    .trim();
+
+/* ---------------- Types ---------------- */
+interface SubSection {
+  title?: string;
+  description?: string;
+}
+
+interface Section {
+  title?: string;
+  shortDescription?: string;
+  subsections?: SubSection[];
+}
+
+interface YourChoicesProps {
+  section: Section | null;
+}
+
+export default function YourChoices({ section }: YourChoicesProps) {
+  const title = cleanText(section?.title || "Your Choices");
+  const intro = cleanText(section?.shortDescription || "");
+
   return (
     <section id="donor">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
+            {/* Heading */}
             <div className="all_heading_t">
-              <h2>Your Choices</h2>
+              <h2>{title}</h2>
             </div>
 
             <div className="donor_content list_a">
-              <h6>You have the following choices regarding your personal information:</h6>
+              {/* Intro text */}
+              {intro && <h6>{intro}</h6>}
 
               <ul className="data_list">
-                <li>Access and Correction:</li>
-                <p>
-                  You can request access to and correction of your personal information we hold. To
-                  do so, please contact us using the information provided below.
-                </p>
+                {/* Dynamic list */}
+                {section?.subsections?.map((sub, index) => {
+                  const liTitle = cleanText(sub?.title || "");
+                  const desc = cleanText(sub?.description || "");
 
-                <li>Opt-Out:</li>
-                <p>
-                  You can opt out of receiving communications from us at any time by following the
-                  instructions in our email communications or contacting us directly.
-                </p>
+                  return (
+                    <li key={index}>
+                      {liTitle && <strong>{liTitle}</strong>}
+                      {desc && <p>{desc}</p>}
+                    </li>
+                  );
+                })}
               </ul>
-
             </div>
           </div>
         </div>
