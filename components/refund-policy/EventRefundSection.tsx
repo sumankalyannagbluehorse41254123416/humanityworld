@@ -1,6 +1,27 @@
 "use client";
 
-export default function EventRefundSection() {
+/* ---------------- Helper ---------------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/g, "") // remove <p> tags
+    .replace(/\s+/g, " ")
+    .trim();
+
+interface Section {
+  title?: string;
+  shortDescription?: string;
+}
+
+interface EventRefundSectionProps {
+  section: Section | null;
+}
+
+export default function EventRefundSection({
+  section,
+}: EventRefundSectionProps) {
+  const title = section?.title || "Event Registration and Merchandise";
+  const description = cleanText(section?.shortDescription);
+
   return (
     <section id="terms">
       <div className="container">
@@ -8,14 +29,12 @@ export default function EventRefundSection() {
           <div className="col-lg-12">
             <div className="terms_content">
               <div className="all_heading_t">
-                <h2>Event Registration and Merchandise</h2>
+                {/* ✅ Dynamic H2 */}
+                <h2>{title}</h2>
               </div>
-              <p>
-                In cases where we offer event registrations, merchandise sales,
-                or other transactions through our website, we operate under the
-                same no refund policy. Once a registration or purchase is made,
-                it is considered final, and we do not offer refunds.
-              </p>
+
+              {/* ✅ Dynamic Paragraph */}
+              {description && <p>{description}</p>}
             </div>
           </div>
         </div>

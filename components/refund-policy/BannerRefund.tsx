@@ -1,11 +1,15 @@
 "use client";
 
-export default function BannerRefund() {
+interface BannerRefundProps {
+  bgImage: string;
+}
+
+export default function BannerRefund({ bgImage }: BannerRefundProps) {
   return (
     <div
       className="main_banner_top"
       style={{
-        backgroundImage: 'url("/images/policy4.jpg")',
+        backgroundImage: `url(${bgImage})`,
         height: "550px",
         backgroundSize: "cover",
         backgroundPosition: "center",

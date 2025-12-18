@@ -1,6 +1,30 @@
 "use client";
 
-export default function RefundContactSection() {
+/* ---------------- Helper ---------------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/g, "") // remove <p> tags
+    .replace(/\s+/g, " ")
+    .trim();
+
+interface SubSection {
+  description?: string;
+}
+
+interface Section {
+  title?: string;
+  subsections?: SubSection[];
+}
+
+interface RefundContactSectionProps {
+  section: Section | null;
+}
+
+export default function RefundContactSection({
+  section,
+}: RefundContactSectionProps) {
+  const title = section?.title || "Contact Us";
+
   return (
     <section id="terms">
       <div className="container">
@@ -8,26 +32,15 @@ export default function RefundContactSection() {
           <div className="col-lg-12">
             <div className="terms_content">
               <div className="all_heading_t">
-                <h2>Contact Us</h2>
+                {/* ✅ Dynamic H2 */}
+                <h2>{title}</h2>
               </div>
 
-              <p>
-                If you have any questions or concerns about our No Refund Policy
-                or a specific transaction, please contact us at: ____________.
-              </p>
-
-              <p>
-                Our team will be happy to assist you and address any inquiries
-                you may have regarding our policy.
-              </p>
-
-              <p>
-                By using our website and engaging in transactions with Humanity
-                World Foundation, you acknowledge and agree to abide by this No
-                Refund Policy. It is your responsibility to review this policy
-                and understand its terms before making any donations or
-                purchases through our website.
-              </p>
+              {/* ✅ Dynamic Paragraphs from Subsections */}
+              {section?.subsections?.map((sub, index) => {
+                const text = cleanText(sub?.description);
+                return text ? <p key={index}>{text}</p> : null;
+              })}
             </div>
           </div>
         </div>
