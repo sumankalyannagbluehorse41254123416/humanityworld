@@ -1,28 +1,55 @@
 "use client";
 
-export default function PerformanceSection() {
+import React from "react";
+
+/* ---------- Types ---------- */
+interface SubSection {
+  description?: string;
+}
+
+interface SectionData {
+  title?: string;
+  subsections?: SubSection[];
+}
+
+interface PerformanceSectionProps {
+  data?: SectionData; // sections[83]
+}
+
+/* ---------- Helper ---------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/gi, "")
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+export default function PerformanceSection({
+  data,
+}: PerformanceSectionProps) {
+  if (!data) return null;
+
   return (
     <section id="copy_right">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Performance</h2>
-            </div>
+            {/* Title */}
+            {data.title && (
+              <div className="all_heading_t">
+                <h2>{cleanText(data.title)}</h2>
+              </div>
+            )}
 
+            {/* Paragraphs */}
             <div className="copy_pera">
-              <p>
-                We use cookies to provide you with the best experience possible.
-              </p>
-
-              <p>
-                For example, Cookies help us route traffic between servers and
-                understand how quickly Humanity World Foundation Services load
-                for different people. Cookies also help us record the ratio and
-                dimensions of your screen and windows and know whether you've
-                enabled high-contrast mode so that we can render our sites and
-                apps correctly.
-              </p>
+              {data.subsections?.map(
+                (item, index) =>
+                  item.description && (
+                    <p key={index}>{cleanText(item.description)}</p>
+                  )
+              )}
             </div>
           </div>
         </div>

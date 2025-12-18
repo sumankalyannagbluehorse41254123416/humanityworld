@@ -1,14 +1,25 @@
 "use client";
-export default function BannerSectionAntiSex() {
+
+interface Section {
+  image?: string;
+}
+
+interface Props {
+  data?: Section;
+}
+
+export default function BannerSectionAntiSex({ data }: Props) {
+  if (!data?.image) return null;
+
   return (
     <div
       className="main_banner_top"
       style={{
-        backgroundImage: 'url(/images/pol5.jpg)',
-        height: '550px',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundImage: `url(${data.image})`,
+        height: "550px",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
-    ></div>
+    />
   );
 }

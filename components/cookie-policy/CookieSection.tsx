@@ -1,47 +1,90 @@
-export default function CookieSection() {
+"use client";
+
+import React from "react";
+
+/* ---------- Types ---------- */
+interface SubSection {
+  description?: string;
+}
+
+interface SectionData {
+  title?: string;
+  shortDescription?: string;
+  subsections?: SubSection[];
+}
+
+interface CookieSectionProps {
+  section84?: SectionData;
+  section85?: SectionData;
+  section86?: SectionData;
+}
+
+/* ---------- Helper ---------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/gi, "")
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+export default function CookieSection({
+  section84,
+  section85,
+  section86,
+}: CookieSectionProps) {
   return (
     <section id="copy_right">
       <div className="container">
         <div className="row">
 
-          {/* Analytics and Research */}
-          <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Analytics and Research</h2>
-            </div>
-            <div className="copy_pera">
-              <p>
-                We use cookies to better understand how people use the Humanity World Foundation Services so that we can improve them.
-              </p>
-              <p>
-                For example, Cookies can help us understand how people use the Humanity World Foundation service, analyse which parts of the Humanity World Foundation Services people find most useful and engaging, and identify features that could be improved.
-              </p>
-            </div>
-          </div>
+          {/* ---------- Section 84 ---------- */}
+          {section84 && (
+            <div className="col-lg-12">
+              <div className="all_heading_t">
+                <h2>{cleanText(section84.title)}</h2>
+              </div>
 
-          {/* Where do we use cookies */}
-          <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Where do we use Cookies?</h2>
+              <div className="copy_pera">
+                {section84.subsections?.map(
+                  (item, index) =>
+                    item.description && (
+                      <p key={index}>{cleanText(item.description)}</p>
+                    )
+                )}
+              </div>
             </div>
-            <div className="copy_pera">
-              <p>
-                We may place cookies on your computer or device, and receive information stored in cookies when you use or visit:
-              </p>
-            </div>
-          </div>
+          )}
 
-          {/* Disabling Cookies */}
-          <div className="col-lg-12">
-            <div className="all_heading_t">
-              <h2>Disabling Cookies</h2>
+          {/* ---------- Section 85 ---------- */}
+          {section85 && (
+            <div className="col-lg-12">
+              <div className="all_heading_t">
+                <h2>{cleanText(section85.title)}</h2>
+              </div>
+
+              <div className="copy_pera">
+                {section85.shortDescription && (
+                  <p>{cleanText(section85.shortDescription)}</p>
+                )}
+              </div>
             </div>
-            <div className="copy_pera">
-              <p>
-                You can prevent the setting of cookies by adjusting the settings on your browser (see your browser Help for how to do this). Be aware that disabling cookies will affect the functionality of this and many other websites that you visit. Disabling cookies will usually result in also disabling certain functionality and features of this site. Therefore, it is recommended that you do not disable cookies.
-              </p>
+          )}
+
+          {/* ---------- Section 86 ---------- */}
+          {section86 && (
+            <div className="col-lg-12">
+              <div className="all_heading_t">
+                <h2>{cleanText(section86.title)}</h2>
+              </div>
+
+              <div className="copy_pera">
+                {section86.shortDescription && (
+                  <p>{cleanText(section86.shortDescription)}</p>
+                )}
+              </div>
             </div>
-          </div>
+          )}
 
         </div>
       </div>

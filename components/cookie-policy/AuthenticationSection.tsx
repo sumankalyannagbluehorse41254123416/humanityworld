@@ -1,29 +1,55 @@
 "use client";
 
-export default function AuthenticationSection() {
+import React from "react";
+
+/* -------- Types -------- */
+interface SubSection {
+  description?: string;
+}
+
+interface SectionData {
+  title?: string;
+  subsections?: SubSection[];
+}
+
+interface AuthenticationSectionProps {
+  data?: SectionData; // section[79]
+}
+
+/* -------- Helper to clean HTML -------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/gi, "") // remove <p> tags
+    .replace(/<br\s*\/?>/gi, " ") // remove <br>
+    .replace(/<[^>]+>/g, "") // remove all HTML
+    .replace(/\s+/g, " ")
+    .trim();
+
+export default function AuthenticationSection({
+  data,
+}: AuthenticationSectionProps) {
+  if (!data) return null;
+
   return (
     <section id="terms">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
             <div className="terms_content">
-              <div className="all_heading_t">
-                <h2>Authentication</h2>
-              </div>
+              {/* Dynamic title */}
+              {data.title && (
+                <div className="all_heading_t">
+                  <h2>{cleanText(data.title)}</h2>
+                </div>
+              )}
 
-              <p>
-                We use cookies to verify your account and determine when you're logged in so
-                we can make it easier for you to access the Humanity World Foundation Services
-                and show you the appropriate experience and features.
-              </p>
-
-              <p>
-                For example, we use cookies to keep you logged in as you navigate between
-                Humanity World Foundation Pages. Cookies also help us remember your browser
-                so you do not have to keep logging in to Humanity World Foundation Website and
-                so you can more easily log in into Humanity World Foundation via third-party
-                apps and websites.
-              </p>
+              {/* Dynamic descriptions */}
+              {data.subsections?.map(
+                (item, index) =>
+                  item.description && (
+                    <p key={index}>{cleanText(item.description)}</p>
+                  )
+              )}
             </div>
           </div>
         </div>

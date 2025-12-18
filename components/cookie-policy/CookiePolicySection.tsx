@@ -1,43 +1,55 @@
 "use client";
 
-export default function CookiePolicySection() {
+import React from "react";
+
+/* -------- Types -------- */
+interface SubSection {
+  description?: string;
+}
+
+interface SectionData {
+  title?: string;
+  subsections?: SubSection[];
+}
+
+interface CookiePolicySectionProps {
+  data?: SectionData; // section[77]
+}
+
+/* -------- Helper to clean HTML -------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/gi, "") // remove <p> tags
+    .replace(/<br\s*\/?>/gi, " ") // remove <br>
+    .replace(/<[^>]+>/g, "") // remove remaining HTML
+    .replace(/\s+/g, " ")
+    .trim();
+
+export default function CookiePolicySection({
+  data,
+}: CookiePolicySectionProps) {
+  if (!data) return null;
+
   return (
     <section>
       <div className="row">
         <div className="col-lg-12">
           <div className="heading">
+            {/* Static heading kept as-is */}
             <h2>HUMANITY WORLD FOUNDATION</h2>
-            <h6>COOKIE POLICY</h6>
+
+            {/* Dynamic title */}
+            {data.title && <h6>{cleanText(data.title)}</h6>}
           </div>
 
+          {/* Dynamic descriptions */}
           <div className="first_pera">
             <div className="container">
-              <p>
-                Cookies are small pieces of text used to store information on
-                web browsers. Cookies are used to store and receive identifiers
-                and other information on computers, phones, and other devices.
-                Other technologies, including data we store on your web browser
-                or device, identifiers associated with your device, and other
-                software, are used for similar purposes. In this policy, we
-                refer to all of these technologies as "cookies."
-              </p>
-
-              <p>
-                We use cookies if you use the website, or have its access,
-                cookies are also used while you are log into our account or make
-                certain donations. Cookies enable Humanity World Foundation to
-                offer Humanity World Foundation Services to you and to
-                understand the information we receive about you, including
-                information about your use of other websites and apps, whether
-                or not you are registered or logged in.
-              </p>
-
-              <p>
-                This policy explains how we use cookies and the choices you
-                have. Except as otherwise stated in this policy, the Data Policy
-                will apply to our processing of the data that we collect via
-                cookies.
-              </p>
+              {data.subsections?.map((item, index) => (
+                item.description && (
+                  <p key={index}>{cleanText(item.description)}</p>
+                )
+              ))}
             </div>
           </div>
         </div>
