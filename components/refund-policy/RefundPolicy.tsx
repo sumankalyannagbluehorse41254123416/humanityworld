@@ -2,7 +2,32 @@
 
 import React from "react";
 
-export default function RefundPolicy() {
+/* ---------------- Types ---------------- */
+interface SubSection {
+  title?: string;
+  description?: string;
+}
+
+interface Section {
+  title?: string;
+  subsections?: SubSection[];
+}
+
+interface RefundPolicyProps {
+  section: Section | null;
+}
+
+/* ---------------- Helper ---------------- */
+const cleanText = (html: string = "") =>
+  html.replace(/<[^>]*>/g, "").trim();
+
+export default function RefundPolicy({ section }: RefundPolicyProps) {
+  const sectionTitle = section?.title || "Interaction";
+
+  // first subsection description
+  const description =
+    section?.subsections?.[0]?.description || "";
+
   return (
     <section>
       <div className="row">
@@ -14,30 +39,15 @@ export default function RefundPolicy() {
 
           <div className="first_pera">
             <div className="all_heading_t">
-              <h2>Interaction</h2>
+              {/* ✅ Dynamic h2 */}
+              <h2>{sectionTitle}</h2>
             </div>
 
             <div className="container">
-              <p>
-                Humanity World Foundation [also referred as “we”, “us”, “our”
-                or “HWF”] is a non-profit organization committed to its mission
-                of providing comprehensive support spanning various sectors
-                which includes Education, Healthcare, Empowerment of Women,
-                Menstrual Health camp, Awareness initiatives for females
-                residing in rural areas, Animal Shelter and Care programs,
-                Sponsorship for Children, Provision of Food and Water to the
-                Homeless, and Ensuring essential necessities for Children in
-                need.
-              </p>
-
-              <p>
-                As a non-profit organization, our primary goal is to direct our
-                resources towards our charitable efforts and projects.
-                Therefore, we have established this
-                <strong> No Refund Policy </strong> to clarify our stance on
-                refunds for donations and other transactions made through our
-                website.
-              </p>
+              {/* ✅ Dynamic paragraph */}
+              {description && (
+                <p>{cleanText(description)}</p>
+              )}
             </div>
           </div>
         </div>

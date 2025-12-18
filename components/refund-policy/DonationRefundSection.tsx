@@ -1,6 +1,27 @@
 "use client";
 
-export default function DonationRefundSection() {
+/* ---------------- Helper ---------------- */
+const cleanText = (html: string = "") =>
+  html
+    .replace(/<\/?p[^>]*>/g, "") // remove opening & closing <p>
+    .replace(/\s+/g, " ")
+    .trim();
+
+interface Section {
+  title?: string;
+  shortDescription?: string;
+}
+
+interface DonationRefundSectionProps {
+  section: Section | null;
+}
+
+export default function DonationRefundSection({
+  section,
+}: DonationRefundSectionProps) {
+  const title = section?.title || "Donation Refunds";
+  const description = cleanText(section?.shortDescription);
+
   return (
     <section id="terms">
       <div className="container">
@@ -8,14 +29,11 @@ export default function DonationRefundSection() {
           <div className="col-lg-12">
             <div className="terms_content">
               <div className="all_heading_t">
-                <h2>Donation Refunds</h2>
+                <h2>{title}</h2>
               </div>
-              <p>
-                All donations made to Humanity World Foundation through our
-                website are considered final and non-refundable. We are unable
-                to issue refunds for any donations, regardless of the amount or
-                reason, once the donation has been successfully processed.
-              </p>
+
+              {/* ✅ Clean text (NO <p> tag) */}
+              {description && <p>{description}</p>}
             </div>
           </div>
         </div>
