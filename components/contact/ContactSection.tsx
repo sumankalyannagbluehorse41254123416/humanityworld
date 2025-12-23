@@ -1,11 +1,118 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchFormFields } from "@/services/fetchFormFields";
+import { handleSubmitForm } from "@/services/handleSubmit";
 
-export default function ContactSection() {
+interface FormField {
+  name: string;
+  label: string;
+  type: string;
+  required: boolean;
+  placeholder?: string;
+}
 
-  const savecontact = () => {
-    alert("Form submitted! (Connect backend here)");
+interface FormResponse {
+  success: boolean;
+  form: {
+    id: number;
+    title: string;
+  };
+  fields: FormField[];
+}
+
+interface ContactFormValues {
+  [key: string]: string;
+}
+
+interface CMSSection {
+  title?: string;
+  shortDescription?: string;
+  subsections?: {
+    description?: string;
+  }[];
+}
+
+interface ContactSectionProps {
+  section?: CMSSection;
+}
+
+const trimText = (text?: string) =>
+  text
+    ?.replace(/<[^>]*>/g, "")
+    ?.replace(/&nbsp;/g, " ")
+    ?.replace(/\s+/g, " ")
+    ?.trim();
+
+export default function ContactSection({ section }: ContactSectionProps) {
+  const [fields, setFields] = useState<FormField[]>([]);
+  const [formData, setFormData] = useState<ContactFormValues>({});
+  const [loading, setLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [error, setError] = useState("");
+
+  /* ---------------- Fetch CMS Form ---------------- */
+  useEffect(() => {
+    const loadForm = async () => {
+      try {
+        const res = (await fetchFormFields(
+          { host: "localhost:3000" },
+          "bfd08b54-0f4c-4c93-8c86-4ead5d60211e"
+        )) as FormResponse;
+
+        if (res?.success) {
+          setFields(res.fields);
+
+          const initialData: ContactFormValues = {};
+          res.fields.forEach((f) => (initialData[f.name] = ""));
+          setFormData(initialData);
+        }
+      } catch (err) {
+        console.error("Error fetching CMS form:", err);
+      }
+    };
+
+    loadForm();
+  }, []);
+
+  /* ---------------- Submit Handler ---------------- */
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setMsg("");
+
+    for (const field of fields) {
+      if (field.required && !formData[field.name]?.trim()) {
+        setError(`${field.label} is required`);
+        return;
+      }
+    }
+
+    try {
+      setLoading(true);
+      const res = await handleSubmitForm("localhost:3000", formData);
+
+      if (res?.success) {
+        setMsg("Message sent successfully!");
+        const cleared: ContactFormValues = {};
+        fields.forEach((f) => (cleared[f.name] = ""));
+        setFormData(cleared);
+      } else {
+        setError("Submission failed. Try again.");
+      }
+    } catch {
+      setError("Something went wrong. Please try later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /* ---------------- Input Change ---------------- */
+  const handleChange = (name: string, value: string) => {
+    if (name.toLowerCase().includes("phone")) {
+      value = value.replace(/\D/g, "").slice(0, 10);
+    }
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -15,8 +122,7 @@ export default function ContactSection() {
       data-element_type="section"
     >
       <div className="elementor-container elementor-column-gap-default">
-
-        {/* LEFT COLUMN */}
+        {/* ================= LEFT COLUMN ================= */}
         <div
           className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4c888c9"
           data-id="4c888c9"
@@ -31,25 +137,25 @@ export default function ContactSection() {
             >
               <div className="elementor-widget-container contact_box">
                 <h2 className="elementor-heading-title elementor-size-default">
-                  CONTACT US
+                  {trimText(section?.shortDescription)}
                 </h2>
+
                 <p>
-                  We sincerely thank you for taking the time to explore our website. Your presence is highly valued, and we're grateful for your interest in connecting with us. Kindly take a moment to complete the form below, and we assure you that we will respond to your inquiry within 24-48 hours. Your input is essential to us as we strive to make a meaningful difference in the lives of those we serve. Thank you once again for considering HWF.
+                  {trimText(section?.subsections?.[0]?.description)}
                 </p>
               </div>
 
               <ul className="contact_sect_1">
                 <li>
-                  <i className="ri-building-line" /> 102 1st floor, Jairaj
-                  Building Opposite Old Income Tax Office, Bandra Kurla Complex,
-                  Bandra East, Mumbai, Maharashtra 400051
+                  <i className="ri-building-line" />
+                  {trimText(section?.subsections?.[1]?.description)}
                 </li>
               </ul>
             </div>
           </div>
         </div>
 
-        {/* RIGHT COLUMN - FORM */}
+        {/* ================= RIGHT COLUMN (FORM) ================= */}
         <div
           className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-6653e19"
           data-id="6653e19"
@@ -72,88 +178,74 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* CONTACT FORM */}
-            <div className="elementor-element elementor-element-dc8ebdf elementor-widget elementor-widget-shortcode">
-              <div className="elementor-widget-container">
-                <div className="elementor-shortcode">
-                  <div className="wpcf7 js" id="wpcf7-f5312-p3449-o1">
-                    <form id="contact-form">
-                      <div className="row mid-spacing">
-                        <div className="form-group col-lg-6 col-md-6 col-sm-12">
-                          <input
-                            type="text"
-                            className="name"
-                            name="name"
-                            id="name"
-                            required
-                            placeholder="Enter Your Name"
-                          />
-                        </div>
+            <form id="contact-form" onSubmit={handleSubmit}>
+              <div className="row mid-spacing">
+                {fields.map((field) => {
+                  const isPhone = field.name.toLowerCase().includes("phone");
 
-                        <div className="form-group col-lg-6 col-md-6 col-sm-12">
-                          <input
-                            type="text"
-                            className="phone"
-                            name="phone"
-                            id="phone"
-                            required
-                            placeholder="Enter Your Mobile Number"
-                          />
-                        </div>
+                  return (
+                    <div
+                      key={field.name}
+                      className={`form-group ${
+                        field.type === "textarea"
+                          ? "col-lg-12 col-md-12 col-sm-12"
+                          : "col-lg-6 col-md-6 col-sm-12"
+                      }`}
+                    >
+                      {field.type === "textarea" ? (
+                        <textarea
+                          name={field.name}
+                          required={field.required}
+                          className="message form-control"
+                          placeholder={field.placeholder || field.label}
+                          value={formData[field.name] || ""}
+                          onChange={(e) =>
+                            handleChange(field.name, e.target.value)
+                          }
+                        />
+                      ) : (
+                        <input
+                          type="text"
+                          name={field.name}
+                          required={field.required}
+                          className={
+                            isPhone ? "form-control phone" : "form-control"
+                          }
+                          placeholder={field.placeholder || field.label}
+                          value={formData[field.name] || ""}
+                          onChange={(e) =>
+                            handleChange(field.name, e.target.value)
+                          }
+                          onKeyPress={(e) => {
+                            if (isPhone && !/[0-9]/.test(e.key)) {
+                              e.preventDefault();
+                            }
+                          }}
+                          maxLength={isPhone ? 10 : undefined}
+                        />
+                      )}
+                    </div>
+                  );
+                })}
 
-                        <div className="form-group col-lg-6 col-md-6 col-sm-12">
-                          <input
-                            type="email"
-                            className="con-email"
-                            name="email"
-                            id="email"
-                            required
-                            placeholder="Your email address"
-                          />
-                        </div>
+                <div className="form-group col-lg-12 col-md-12 col-sm-12">
+                  <button
+                    className="theme-btn btn-style-four"
+                    type="submit"
+                    disabled={loading}
+                    style={{ color: "#f46a01" }}
+                  >
+                    {loading ? "Sending..." : "Send Message"}
+                  </button>
 
-                        <div className="form-group col-lg-6 col-md-6 col-sm-12">
-                          <input
-                            type="text"
-                            name="sub"
-                            id="subject"
-                            required
-                            placeholder="Subject"
-                          />
-                        </div>
-
-                        <div className="form-group col-lg-12 col-md-12 col-sm-12">
-                          <textarea
-                            name="contact_message"
-                            id="message"
-                            required
-                            className="message form-control"
-                            placeholder="Write your message..."
-                          />
-                        </div>
-
-                        <div className="form-group col-lg-12 col-md-12 col-sm-12">
-                          <button
-                            className="theme-btn btn-style-four"
-                            type="button"
-                            style={{ color: "#f46a01" }}
-                            onClick={savecontact}
-                          >
-                            Send Message
-                          </button>
-
-                          <div id="msgSubmit" className="text-center text-info h4 hidden contact_gap" />
-                          <div id="msgSuccess" className="text-center text-success h4 hidden contact_gap" />
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+                  {error && <div className="text-danger mt-2">{error}</div>}
+                  {msg && <div className="text-success mt-2">{msg}</div>}
                 </div>
               </div>
-            </div>
+            </form>
+
           </div>
         </div>
-
       </div>
     </section>
   );
